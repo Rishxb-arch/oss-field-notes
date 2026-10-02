@@ -1,0 +1,104 @@
+[
+ {
+  "case": "ptp_hinglish",
+  "gold": "PROMISE_TO_PAY",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "action_items",
+   "classification",
+   "key_points",
+   "summary"
+  ],
+  "in_tokens": 280,
+  "out_tokens": 178,
+  "secs": 24.4,
+  "text": "{\"summary\": \"The call was to confirm the EMI status. The customer acknowledged the pending EMI of 4500 rupees due on the 5th and committed to paying by the 28th due to a late salary. The agent noted the commitment and will update the records accordingly.\",\"key_points\": [\"EMI amount of 4500 rupees was due on the 5th; the payment is currently pending.\",\"Customer Rahul stated his salary was late and he will pay by the 28th.\",\"Agent acknowledged the commitment and will note the payment by the 28th.\"],\"action_items\": [\"Customer to make the EMI payment of 4500 rupees by the 28th.\",\"Agent to update the payment status in the system once the payment is received.\"],\"classification\": \"ALREADY_PAID\"}\n"
+ },
+ {
+  "case": "paid_devanagari",
+  "gold": "ALREADY_PAID",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "action_items",
+   "classification",
+   "key_points",
+   "summary"
+  ],
+  "in_tokens": 424,
+  "out_tokens": 146,
+  "secs": 31.8,
+  "text": "{\"summary\": \"The customer claims to have paid the EMI via UPI yesterday and provided a transaction ID (T2409). The agent will verify the payment and update the account accordingly.\",\"key_points\": [\"Customer states they paid the EMI via UPI yesterday and has a screenshot.\",\"Transaction ID provided: T2409.\",\"Agent requested the transaction ID to verify the payment.\",\"Customer will send the transaction ID via WhatsApp.\",\"Agent will check the payment and update the status.\"],\"action_items\": [\"Customer to send the transaction ID (T2409) via WhatsApp.\",\"Agent to verify the payment and update the EMI status in the system.\"],\"classification\": \"ALREADY_PAID\"}\n"
+ },
+ {
+  "case": "refused_english",
+  "gold": "REFUSED",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "action_items",
+   "classification",
+   "key_points",
+   "summary"
+  ],
+  "in_tokens": 233,
+  "out_tokens": 156,
+  "secs": 24.7,
+  "text": "{\"summary\": \"The customer refused to pay the overdue loan and raised a product defect complaint. The agent acknowledged the loan is separate from the product issue and escalated the complaint, while the customer requested no further calls.\",\"key_points\": [\"Overdue loan amount is 12,000 rupees.\",\"Customer states they are not paying and mentions a product defect; claims nobody helped.\",\"Agent states the loan is separate from the product issue.\",\"Customer requests not to be called again.\",\"Agent will escalate the complaint.\"],\"action_items\": [\"Escalate the customer's complaint to the appropriate department.\",\"Update CRM with the customer's refusal to pay and the product defect complaint.\",\"Do not initiate further calls to this customer unless requested.\"],\"classification\": \"CALLBACK_REQUESTED\"}\n"
+ },
+ {
+  "case": "callback_noisy_asr",
+  "gold": "CALLBACK_REQUESTED",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "action_items",
+   "classification",
+   "key_points",
+   "summary"
+  ],
+  "in_tokens": 235,
+  "out_tokens": 86,
+  "secs": 15.3,
+  "text": "{\"summary\": \"The caller requested a callback at 6 PM due to being busy; the agent agreed to call back at that time.\",\"key_points\": [\"Caller is currently driving and unavailable to talk.\",\"Caller requested a callback at 6 PM.\",\"Agent confirmed to call back at 6 PM.\"],\"action_items\": [\"Place a callback to the caller at 6 PM.\"],\"classification\": \"CALLBACK_REQUESTED\"}\n"
+ },
+ {
+  "case": "wrong_number",
+  "gold": "WRONG_NUMBER",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "action_items",
+   "classification",
+   "key_points",
+   "summary"
+  ],
+  "in_tokens": 239,
+  "out_tokens": 149,
+  "secs": 21.7,
+  "text": "{\"summary\": \"The caller attempted to reach Sunita Sharma but the number is not associated with that name. The caller requests updating the records to reflect the correct contact information and to prevent future misdials.\",\"key_points\": [\"Caller states they are not Sunita Sharma and that this is the wrong number.\",\"Agent confirms the number is in records under the name Sunita Sharma.\",\"Caller requests updating the records to reflect the correct contact information and to stop misdials.\"],\"action_items\": [\"Update the contact records to reflect the correct name (not Sunita Sharma) and correct the number.\",\"Ensure future calls are routed to the correct number and that the name on file is updated accordingly.\"],\"classification\": \"WRONG_NUMBER\"}\n"
+ },
+ {
+  "case": "empty",
+  "gold": "NO_RESPONSE",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "action_items",
+   "classification",
+   "key_points",
+   "summary"
+  ],
+  "in_tokens": 193,
+  "out_tokens": 77,
+  "secs": 10.9,
+  "text": "{\"summary\": \"The agent attempted to reach the user, but the call did not connect. The agent will retry later, indicating a follow-up is needed.\",\"key_points\": [\"Agent attempted to connect with the user.\",\"Call did not connect; agent will retry later.\"],\"action_items\": [\"Retry the call later to connect with the user.\"],\"classification\": \"NO_RESPONSE\"}\n"
+ }
+]

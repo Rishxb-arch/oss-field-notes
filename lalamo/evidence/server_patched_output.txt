@@ -1,0 +1,19 @@
+# repro_server.sh patched   (lalamo-server-batch-size.patch, --batch-size 2; re-run 2 Oct 2026)
+== default reasoning, max_completion_tokens=32
+POST /batches -> 202 batch_2aaac6
+status=completed completed=4/4 after 35s error=None
+  q0: response=''
+      chain_of_thought="\nOkay, the user is asking for the capital of France, and they mentioned it's one word. Let"...
+  q1: response=''
+      chain_of_thought='\nOkay, so the problem is 2 plus 2 equals what, and I need to answer with a number. Let me '...
+  q2: response=''
+      chain_of_thought='\nOkay, the user is asking for a primary color in one word. Let me think. Primary colors ar'...
+  q3: response=''
+      chain_of_thought='\nOkay, the user is asking for the opposite of "hot" in one word. Let me think. The word "h'...
+== reasoning_effort=no_reasoning
+POST /batches -> 202 batch_ee88cb
+status=completed completed=4/4 after 35s error=None
+  q0: response='The capital of France is **Paris**.<|im_end|>'
+  q1: response='2 + 2 = 4.<|im_end|>'
+  q2: response='Red<|im_end|>'
+  q3: response='**Cold**<|im_end|>'

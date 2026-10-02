@@ -1,0 +1,24 @@
+diff --git a/src/fi/evals/core/engines.py b/src/fi/evals/core/engines.py
+index 54e3f48..dfa49b7 100644
+--- a/src/fi/evals/core/engines.py
++++ b/src/fi/evals/core/engines.py
+@@ -132,6 +132,19 @@ class LocalEngine(Engine):
+ 
+         metric_input = self._build_metric_input(metric, metric_inputs, inputs)
+ 
++        # Surface missing/invalid inputs as a failed eval instead of letting
++        # BaseMetric.evaluate turn them into a "completed" result with score 0.0.
++        input_model = getattr(metric, "input_model", None)
++        if input_model is not None and isinstance(metric_input, dict):
++            try:
++                input_model.model_validate(metric_input)
++            except Exception as exc:  # pydantic.ValidationError
++                return EvalResult(
++                    eval_name=eval_name,
++                    status="failed",
++                    error=f"Invalid inputs for local metric '{eval_name}': {exc}",
++                )
++
+         start = time.perf_counter()
+         try:
+             batch = metric.evaluate([metric_input])

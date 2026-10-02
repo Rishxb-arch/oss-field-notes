@@ -1,0 +1,323 @@
+{
+  "duration_seconds": 175.2732,
+  "eval_suite": {
+    "cases": [
+      {
+        "assertions": [
+          {
+            "actual": "You have 30 days to return an item if it's unused and shipped to India, Nepal, or Bhutan.",
+            "expected": "30",
+            "passed": true,
+            "type": "contains"
+          }
+        ],
+        "findings": [],
+        "id": "qwen-local::q::refund-window",
+        "index": 1,
+        "input": "How many days do I have to return an item?",
+        "metrics": [
+          {
+            "details": {
+              "assertions": [
+                {
+                  "actual": "You have 30 days to return an item if it's unused and shipped to India, Nepal, or Bhutan.",
+                  "expected": "30",
+                  "passed": true,
+                  "type": "contains"
+                }
+              ],
+              "findings": []
+            },
+            "name": "eval_assertions",
+            "score": 1.0
+          }
+        ],
+        "name": "qwen-local::q::refund-window",
+        "output": "You have 30 days to return an item if it's unused and shipped to India, Nepal, or Bhutan.",
+        "passed": true,
+        "prompt_id": "q",
+        "provider_id": "qwen-local",
+        "provider_type": "litellm",
+        "score": 1.0,
+        "test_id": "refund-window"
+      },
+      {
+        "assertions": [
+          {
+            "actual": "No, we ship only to India, Nepal, and Bhutan.",
+            "expected": "(?i)\\b(no|not|only|unfortunately|sorry)\\b",
+            "passed": true,
+            "type": "regex"
+          },
+          {
+            "actual": "No, we ship only to India, Nepal, and Bhutan.",
+            "expected": "Yes",
+            "passed": true,
+            "type": "not_contains"
+          }
+        ],
+        "findings": [],
+        "id": "qwen-local::q::no-sri-lanka",
+        "index": 2,
+        "input": "Can you ship to Colombo, Sri Lanka?",
+        "metrics": [
+          {
+            "details": {
+              "assertions": [
+                {
+                  "actual": "No, we ship only to India, Nepal, and Bhutan.",
+                  "expected": "(?i)\\b(no|not|only|unfortunately|sorry)\\b",
+                  "passed": true,
+                  "type": "regex"
+                },
+                {
+                  "actual": "No, we ship only to India, Nepal, and Bhutan.",
+                  "expected": "Yes",
+                  "passed": true,
+                  "type": "not_contains"
+                }
+              ],
+              "findings": []
+            },
+            "name": "eval_assertions",
+            "score": 1.0
+          }
+        ],
+        "name": "qwen-local::q::no-sri-lanka",
+        "output": "No, we ship only to India, Nepal, and Bhutan.",
+        "passed": true,
+        "prompt_id": "q",
+        "provider_id": "qwen-local",
+        "provider_type": "litellm",
+        "score": 1.0,
+        "test_id": "no-sri-lanka"
+      },
+      {
+        "assertions": [
+          {
+            "actual": "shipped",
+            "expected": "shipped",
+            "passed": true,
+            "path": "$.status",
+            "type": "json_path_equals"
+          }
+        ],
+        "findings": [],
+        "id": "qwen-local::q::json-order",
+        "index": 3,
+        "input": "Reply ONLY with JSON {\"order_id\": \"A12\", \"status\": \"shipped\"} and nothing else.",
+        "metrics": [
+          {
+            "details": {
+              "assertions": [
+                {
+                  "actual": "shipped",
+                  "expected": "shipped",
+                  "passed": true,
+                  "path": "$.status",
+                  "type": "json_path_equals"
+                }
+              ],
+              "findings": []
+            },
+            "name": "eval_assertions",
+            "score": 1.0
+          }
+        ],
+        "name": "qwen-local::q::json-order",
+        "output": "{\"order_id\": \"A12\", \"status\": \"shipped\"}",
+        "passed": true,
+        "prompt_id": "q",
+        "provider_id": "qwen-local",
+        "provider_type": "litellm",
+        "score": 1.0,
+        "test_id": "json-order"
+      }
+    ],
+    "prompts": [
+      {
+        "id": "q"
+      }
+    ],
+    "providers": [
+      {
+        "id": "qwen-local",
+        "type": "litellm"
+      }
+    ],
+    "tests": [
+      {
+        "id": "refund-window"
+      },
+      {
+        "id": "no-sri-lanka"
+      },
+      {
+        "id": "json-order"
+      }
+    ],
+    "version": "agent-learning.eval.v1"
+  },
+  "evaluation": {
+    "cases": [
+      {
+        "assertions": [
+          {
+            "actual": "You have 30 days to return an item if it's unused and shipped to India, Nepal, or Bhutan.",
+            "expected": "30",
+            "passed": true,
+            "type": "contains"
+          }
+        ],
+        "findings": [],
+        "id": "qwen-local::q::refund-window",
+        "index": 1,
+        "input": "How many days do I have to return an item?",
+        "metrics": [
+          {
+            "details": {
+              "assertions": [
+                {
+                  "actual": "You have 30 days to return an item if it's unused and shipped to India, Nepal, or Bhutan.",
+                  "expected": "30",
+                  "passed": true,
+                  "type": "contains"
+                }
+              ],
+              "findings": []
+            },
+            "name": "eval_assertions",
+            "score": 1.0
+          }
+        ],
+        "name": "qwen-local::q::refund-window",
+        "output": "You have 30 days to return an item if it's unused and shipped to India, Nepal, or Bhutan.",
+        "passed": true,
+        "prompt_id": "q",
+        "provider_id": "qwen-local",
+        "provider_type": "litellm",
+        "score": 1.0,
+        "test_id": "refund-window"
+      },
+      {
+        "assertions": [
+          {
+            "actual": "No, we ship only to India, Nepal, and Bhutan.",
+            "expected": "(?i)\\b(no|not|only|unfortunately|sorry)\\b",
+            "passed": true,
+            "type": "regex"
+          },
+          {
+            "actual": "No, we ship only to India, Nepal, and Bhutan.",
+            "expected": "Yes",
+            "passed": true,
+            "type": "not_contains"
+          }
+        ],
+        "findings": [],
+        "id": "qwen-local::q::no-sri-lanka",
+        "index": 2,
+        "input": "Can you ship to Colombo, Sri Lanka?",
+        "metrics": [
+          {
+            "details": {
+              "assertions": [
+                {
+                  "actual": "No, we ship only to India, Nepal, and Bhutan.",
+                  "expected": "(?i)\\b(no|not|only|unfortunately|sorry)\\b",
+                  "passed": true,
+                  "type": "regex"
+                },
+                {
+                  "actual": "No, we ship only to India, Nepal, and Bhutan.",
+                  "expected": "Yes",
+                  "passed": true,
+                  "type": "not_contains"
+                }
+              ],
+              "findings": []
+            },
+            "name": "eval_assertions",
+            "score": 1.0
+          }
+        ],
+        "name": "qwen-local::q::no-sri-lanka",
+        "output": "No, we ship only to India, Nepal, and Bhutan.",
+        "passed": true,
+        "prompt_id": "q",
+        "provider_id": "qwen-local",
+        "provider_type": "litellm",
+        "score": 1.0,
+        "test_id": "no-sri-lanka"
+      },
+      {
+        "assertions": [
+          {
+            "actual": "shipped",
+            "expected": "shipped",
+            "passed": true,
+            "path": "$.status",
+            "type": "json_path_equals"
+          }
+        ],
+        "findings": [],
+        "id": "qwen-local::q::json-order",
+        "index": 3,
+        "input": "Reply ONLY with JSON {\"order_id\": \"A12\", \"status\": \"shipped\"} and nothing else.",
+        "metrics": [
+          {
+            "details": {
+              "assertions": [
+                {
+                  "actual": "shipped",
+                  "expected": "shipped",
+                  "passed": true,
+                  "path": "$.status",
+                  "type": "json_path_equals"
+                }
+              ],
+              "findings": []
+            },
+            "name": "eval_assertions",
+            "score": 1.0
+          }
+        ],
+        "name": "qwen-local::q::json-order",
+        "output": "{\"order_id\": \"A12\", \"status\": \"shipped\"}",
+        "passed": true,
+        "prompt_id": "q",
+        "provider_id": "qwen-local",
+        "provider_type": "litellm",
+        "score": 1.0,
+        "test_id": "json-order"
+      }
+    ],
+    "findings": [],
+    "passed": true,
+    "score": 1.0,
+    "threshold": 1.0
+  },
+  "exit_code": 0,
+  "kind": "agent-learning.eval.v1",
+  "name": "local-support-bot",
+  "outputs_written": [
+    "suite/result.json",
+    "suite/result.md"
+  ],
+  "schema_version": "agent-learning.cli.v1",
+  "status": "passed",
+  "summary": {
+    "assertion_count": 4,
+    "case_count": 3,
+    "dry_run": false,
+    "failed_assertion_count": 0,
+    "failed_case_count": 0,
+    "passed_assertion_count": 4,
+    "passed_case_count": 3,
+    "prompt_count": 1,
+    "provider_count": 1,
+    "score": 1.0,
+    "test_count": 3,
+    "threshold": 1.0
+  }
+}

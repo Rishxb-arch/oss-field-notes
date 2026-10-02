@@ -1,0 +1,24 @@
+# python 02_example_ollama.py after bolna-text-mode-fixes.patch (original run 26 Sep 2026): the first crash is gone, the next one appears
+Traceback (most recent call last):
+  File "./02_example_ollama.py", line 31, in <module>
+    asyncio.run(main())
+  File "<python>/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "<python>/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "./02_example_ollama.py", line 26, in main
+    async for chunk in assistant.execute():
+  File "<venv>/bolna/assistant.py", line 49, in execute
+    async for index, task_output in self.manager.run():
+  File "<venv>/bolna/agent_manager/assistant_manager.py", line 60, in run
+    task_manager = TaskManager(
+                   ^^^^^^^^^^^^
+  File "<venv>/bolna/agent_manager/task_manager.py", line 919, in __init__
+    self.synthesizer_monitor_task = asyncio.create_task(self.tools["synthesizer"].monitor_connection())
+                                                        ~~~~~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'synthesizer'

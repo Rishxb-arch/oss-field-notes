@@ -1,0 +1,18 @@
+CPU AMX flags: amx_bf16 amx_int8 amx_tile 
+== baseline
+TINY distinct=6/6
+    'До встре‒ Selector. No matter. TryBASE again. ˚, fam againfte, Fale!!! Boutoret SQLiteometryometry'
+    'Everões, Ever failed. No matter. Try again. F samen again. Fell better.'
+    "Ever tried xcode. Ever failed. No matter. Try again. 'fail again! Fell better."
+    'Ever tried. Ever failed. No-matterycler. Try again. Fare again seria. Fell better.'
+    'Ever tried. Ever failed. No matter. Try again. Fare again. Svens. Fell better.'
+    'Ever tried. \'\'\'\'\'\'\'\'\'\' No matter. Try again. .", Fare again. Fell better.'
+== AMX denied
+[noamx] denied ARCH_REQ_XCOMP_PERM
+TINY distinct=1/6
+    'Ever tried. Ever failed. No matter. Try again. Fare again. Fell better.'
+    'Ever tried. Ever failed. No matter. Try again. Fare again. Fell better.'
+    'Ever tried. Ever failed. No matter. Try again. Fare again. Fell better.'
+    'Ever tried. Ever failed. No matter. Try again. Fare again. Fell better.'
+    'Ever tried. Ever failed. No matter. Try again. Fare again. Fell better.'
+    'Ever tried. Ever failed. No matter. Try again. Fare again. Fell better.'

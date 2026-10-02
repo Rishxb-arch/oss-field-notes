@@ -1,0 +1,13 @@
+HTTP/2 502 
+date: Fri, 25 Sep 2026 22:46:59 GMT
+server: uvicorn
+content-length: 59
+content-type: application/json
+content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self';
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+x-content-type-options: nosniff
+x-frame-options: DENY
+access-control-allow-origin: null
+via: 1.1 google
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+

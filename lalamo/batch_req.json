@@ -1,0 +1,46 @@
+[
+ {
+  "sequence_id": "q0",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Capital of France? One word."
+   }
+  ],
+  "model": "models/Qwen3-0.6B",
+  "max_completion_tokens": 32
+ },
+ {
+  "sequence_id": "q1",
+  "messages": [
+   {
+    "role": "user",
+    "content": "2+2=? Answer with a number."
+   }
+  ],
+  "model": "models/Qwen3-0.6B",
+  "max_completion_tokens": 32
+ },
+ {
+  "sequence_id": "q2",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Name a primary color. One word."
+   }
+  ],
+  "model": "models/Qwen3-0.6B",
+  "max_completion_tokens": 32
+ },
+ {
+  "sequence_id": "q3",
+  "messages": [
+   {
+    "role": "user",
+    "content": "Opposite of hot? One word."
+   }
+  ],
+  "model": "models/Qwen3-0.6B",
+  "max_completion_tokens": 32
+ }
+]

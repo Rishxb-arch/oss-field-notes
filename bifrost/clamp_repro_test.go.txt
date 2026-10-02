@@ -1,0 +1,25 @@
+package openai
+
+import (
+	"encoding/json"
+	"testing"
+
+	"github.com/maximhq/bifrost/core/schemas"
+)
+
+func TestClampRepro(t *testing.T) {
+	for _, prov := range []schemas.ModelProvider{schemas.OpenAI, schemas.Ollama, schemas.VLLM} {
+		for _, n := range []int{1, 5, 16} {
+			req := &schemas.BifrostChatRequest{
+				Provider: prov, Model: "qwen2.5:0.5b-instruct",
+				Input:  []schemas.ChatMessage{},
+				Params: &schemas.ChatParameters{MaxCompletionTokens: schemas.Ptr(n)},
+			}
+			out := ToOpenAIChatRequest(schemas.NewBifrostContext(nil, schemas.NoDeadline), req)
+			b, _ := json.Marshal(out)
+			var m map[string]any
+			json.Unmarshal(b, &m)
+			t.Logf("provider=%s requested=%d wire max_tokens=%v max_completion_tokens=%v", prov, n, m["max_tokens"], m["max_completion_tokens"])
+		}
+	}
+}

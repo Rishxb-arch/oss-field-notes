@@ -1,0 +1,33 @@
+diff --git a/core/providers/openai/chat.go b/core/providers/openai/chat.go
+index 9e1864a..add100a 100644
+--- a/core/providers/openai/chat.go
++++ b/core/providers/openai/chat.go
+@@ -43,7 +43,12 @@ func ToOpenAIChatRequest(ctx *schemas.BifrostContext, bifrostReq *schemas.Bifros
+ 	if bifrostReq.Params != nil {
+ 		openaiReq.ChatParameters = *bifrostReq.Params
+ 		openaiReq.ServiceTier = serviceTierForModel(caps, openaiReq.ServiceTier)
+-		if openaiReq.ChatParameters.MaxCompletionTokens != nil && *openaiReq.ChatParameters.MaxCompletionTokens < MinMaxCompletionTokens {
++		// Only clamp for hosted providers that enforce a floor. Self-hosted
++		// OpenAI-compatible servers (Ollama, vLLM, SGLang) honour small limits,
++		// and callers use max_tokens=1..15 for classification / yes-no probes.
++		if openaiReq.ChatParameters.MaxCompletionTokens != nil &&
++			*openaiReq.ChatParameters.MaxCompletionTokens < MinMaxCompletionTokens &&
++			!honoursSmallMaxTokens(bifrostReq.Provider) {
+ 			openaiReq.ChatParameters.MaxCompletionTokens = schemas.Ptr(MinMaxCompletionTokens)
+ 		}
+ 		// Drop user field if it exceeds OpenAI's 64 character limit
+@@ -371,3 +376,14 @@ func (req *OpenAIChatRequest) applyXAICompatibility(caps schemas.ModelCaps) {
+ 		req.ChatParameters.Reasoning.Effort = nil
+ 	}
+ }
++
++// honoursSmallMaxTokens reports whether the provider accepts max tokens values
++// below MinMaxCompletionTokens without rejecting the request.
++func honoursSmallMaxTokens(provider schemas.ModelProvider) bool {
++	switch provider {
++	case schemas.Ollama, schemas.VLLM, schemas.SGL:
++		return true
++	default:
++		return false
++	}
++}

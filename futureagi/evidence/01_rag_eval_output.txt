@@ -1,0 +1,10 @@
+  label, score = check_entailment(ctx, claim)
+[local faithfulness #0] 4.0s -> ('faithfulness', 1.0, '1/1 claims supported', None)
+[local faithfulness #1] 0.0s -> ('faithfulness', 0.4, '0/1 claims supported. 1 neutral', None)
+[local faithfulness #2] 0.0s -> ('faithfulness', 1.0, '1/1 claims supported', None)
+[local batch metrics] 0.1s -> [('contains_valid_link', 1.0, "Valid link 'https://example.com' found (Status: 200)"), ('is_json', 0.0, 'Response is not a valid JSON object: Expecting value: line 1 column 1 (char 0)'), ('one_line', 1.0, 'Response is a single line.')]
+[llm judge (ollama) groundedness #1] 0.0s -> ('groundedness', None, '', "LLMEngine requires a 'prompt' parameter")
+[llm custom prompt (ollama)] 5.5s -> ('custom_prompt', 0.0, '{\n  "score": 0.0,\n  "reason": "The answer is not supported by the context. The context clearly states that they ship to ', None)
+[unknown metric] 0.0s -> ('faithfullness', None, '', "Local metric 'faithfullness' not found in registry")
+[missing context] 0.0s -> ('faithfulness', 0.0, 'Input validation failed: 1 validation error for HallucinationInput\ncontext\n  Field required [type=missing, input_value={', None)
+[no engine, no key] 0.0s -> ('groundedness', 0.0, "Input validation failed: 1 validation error for RAGInput\nquery\n  Field required [type=missing, input_value={'response': ", None)

@@ -1,0 +1,4 @@
+{"mode":"byok","byok":{"mode":"pipeline","pipeline":{
+ "llm":{"provider":"openai","api_key":"not-needed-for-ollama","model":"qwen2.5:1.5b-instruct","base_url":"http://127.0.0.1:11434/v1"},
+ "tts":{"provider":"speaches","model":"kokoro","base_url":"http://127.0.0.1:8880/v1"},
+ "stt":{"provider":"speaches","model":"Systran/faster-distil-whisper-small.en","base_url":"http://127.0.0.1:8881/v1"}}}}

@@ -1,0 +1,21 @@
+== get_context p0_23:27:14:14 -> 29340 chars
+## MODBUS Application Protocol Specification V1.1b3 — §27 is the MSB of this byte, and output 20 is the LSB., pp.12–22
+
+27 is the MSB of this byte, and output 20 is the LSB.
+By convention, bits within a byte are shown with the MSB to the left, and the LSB to the right.
+Thus the outputs in the first byte are ‘27 through 20’, from left to right. The next byte has
+outputs ‘35 through 28’, left to right. As the bits are transmitted serially, they flow from LSB to
+MSB: 20 . . . 27, 28 . . . 35, and so on.
+In the last data byte, the status of outputs 38-36 is shown as the byte value 05 hex, or binar
+
+== get_context p0_28:4.4:32:1 -> 10268 chars
+## Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, pp.249–253
+
+4.4     System timer, SysTick
+                             The processor has a 24-bit system timer, SysTick, that counts down from the reload value to
+                             zero, reloads, that is wraps to, the value in the SYST_RVR register on the next clock edge, then
+                             counts down on subsequent clocks.
+                                   Note
+                             When the processor is halted for debugging the counter does not decrement.
+              
+

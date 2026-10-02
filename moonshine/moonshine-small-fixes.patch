@@ -1,0 +1,34 @@
+diff --git a/language-bindings/python/src/moonshine_voice/mic_transcriber.py b/language-bindings/python/src/moonshine_voice/mic_transcriber.py
+index 547991c..8a94736 100644
+--- a/language-bindings/python/src/moonshine_voice/mic_transcriber.py
++++ b/language-bindings/python/src/moonshine_voice/mic_transcriber.py
+@@ -17,7 +17,15 @@ from moonshine_voice.transcriber import (
+ 
+ import numpy as np
+ import queue
+-import sounddevice as sd
++try:
++    import sounddevice as sd
++except OSError as e:  # sounddevice raises OSError when the PortAudio shared library is missing
++    raise ImportError(
++        "Microphone capture needs the PortAudio library, which was not found "
++        f"({e}). Install it (Debian/Ubuntu: `sudo apt install libportaudio2`, "
++        "macOS: `brew install portaudio`) or use Transcriber / `moonshine-voice "
++        "transcribe <file.wav>` for file input."
++    ) from e
+ import sys
+ import threading
+ import time
+diff --git a/language-bindings/python/src/moonshine_voice/transcriber.py b/language-bindings/python/src/moonshine_voice/transcriber.py
+index 7193028..31de6d9 100644
+--- a/language-bindings/python/src/moonshine_voice/transcriber.py
++++ b/language-bindings/python/src/moonshine_voice/transcriber.py
+@@ -768,7 +768,7 @@ if __name__ == "__main__":
+     import argparse
+     from moonshine_voice import get_diarization_model, get_model_for_language
+ 
+-    parser = argparse.ArgumentParser(description="Model info example")
++    parser = argparse.ArgumentParser(description="Transcribe WAV files with Moonshine")
+     parser.add_argument(
+         "--language", type=str, default="en", help="Language to use for transcription"
+     )

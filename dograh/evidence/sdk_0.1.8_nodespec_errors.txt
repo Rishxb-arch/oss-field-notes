@@ -1,0 +1,89 @@
+Traceback (most recent call last):
+  File "./build_and_chat.py", line 51, in <module>
+    created, wf = build()
+                  ^^^^^^^
+  File "./build_and_chat.py", line 19, in build
+    start = wf.add(type="startCall", name="greeting", prompt=(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<site-packages>/dograh_sdk/workflow.py", line 89, in add
+    spec: NodeSpec = self._client.get_node_type(type)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<site-packages>/dograh_sdk/client.py", line 98, in get_node_type
+    spec = super().get_node_type(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<site-packages>/dograh_sdk/_generated_client.py", line 46, in get_node_type
+    return NodeSpec.model_validate(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<site-packages>/pydantic/main.py", line 732, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 23 validation errors for NodeSpec
+properties.0.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.1.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.2.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.3.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.4.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.5.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.6.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.7.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.8.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.9.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.10.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.11.properties.0.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.11.properties.1.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.11.properties.2.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.11.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.12.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.13.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.14.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.15.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+properties.16.renderer_options
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+graph_constraints.min_instances
+  Extra inputs are not permitted [type=extra_forbidden, input_value=1, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+graph_constraints.max_instances
+  Extra inputs are not permitted [type=extra_forbidden, input_value=1, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+docs_url
+  Extra inputs are not permitted [type=extra_forbidden, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden

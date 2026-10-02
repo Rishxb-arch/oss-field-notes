@@ -1,0 +1,69 @@
+===== SYST_FOOBAR register reset value
+## Results for "SYST_FOOBAR register reset value"
+
+### Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, pp.249–250
+> 4.4.1   SysTick Control and Status Register
+>                              The SysTick SYST_CSR register enables the SysTick features. The register resets to
+>                              0x00000000, or to 0x00000004 if your device does not implement a reference clock. See the
+>                              register summary in Table 4-32 for its attributes. The bit assignments are:
+>                                  31                                          17 16 15                                      3 2 1 0
+>                                                   Reserved                                         Reserved                  0 0 0
+>                                                                  COUNTFLAG                                 CLKSOURCE
+>                                                                                                                TICKINT
+>                                                                                                               ENABLE
+>                                                                       Table 4-33 SysTick SYST_CSR register bit assignments
+>            Bits       Name              Function
+>            [31:17]    -           ...
+_ref: `p0_28:4.4:32:1`
+
+### Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.2
+
+===== SYST_FOOBAR register reset value
+## Results for "SYST_FOOBAR register reset value"
+
+### Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, pp.249–250
+> 4.4.1   SysTick Control and Status Register
+>                              The SysTick SYST_CSR register enables the SysTick features. The register resets to
+>                              0x00000000, or to 0x00000004 if your device does not implement a reference clock. See the
+>                              register summary in Table 4-32 for its attributes. The bit assignments are:
+>                                  31                                          17 16 15                                      3 2 1 0
+>                                                   Reserved                                         Reserved                  0 0 0
+>                                                                  COUNTFLAG                                 CLKSOURCE
+>                                                                                                                TICKINT
+>                                                                                                               ENABLE
+>                                                                       Table 4-33 SysTick SYST_CSR register bit assignments
+>            Bits       Name              Function
+>            [31:17]    -           ...
+_ref: `p0_28:4.4:32:1`
+
+### Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.2
+
+===== FC06 write single register
+## Results for "FC06 write single register"
+
+### MODBUS Application Protocol Specification V1.1b3 — §27 is the MSB of this byte, and output 20 is the LSB., p.19
+> MB Server Sends mb_exception_rsp                                      EXIT
+>                           Figure 15:            Write Single Output state diagram
+> 6.6     06 (0x06) Write Single Register
+> This function code is used to write a single holding register in a remote device.
+> The Request PDU specifies the address of the register to be written. Registers are addressed
+> starting at zero. Therefore register numbered 1 is addressed as 0.
+> The normal response is an echo of the request, returned after the register contents have been
+> written.
+> Request
+>          Function code                          1 Byte                   0x06
+>          Register Address                       2 Bytes                  0x0000 to 0xFFFF
+>          Register Value                         2 Bytes                  0x0000 to 0xFFFF
+> Response
+>          Function code                          1 Byte                   0x06
+>          Register Address                       2 Bytes                  0x0000 to 0xFFFF
+>          Register Value                         2 Bytes                  0x0000 to 0xFFFF
+> Error
+>          Error code                             1 Byte                   0x86
+>          Exception code                   ...
+_ref: `p0_23:27:14:14`
+
+### MODBUS Application Protocol Specification V1.1b3 — §27 is the MSB of
+
+refs: []
+[trimmed: the script then crashed in get_context because the older mcp SDK client raised on shutdown; a local traceback was removed. The get_context result is in hosted_ctx.txt]

@@ -1,0 +1,20 @@
+2026-09-26 03:11:49.120595043 [E:onnxruntime:, sequential_executor.cc:671 ExecuteKernel] Non-zero status code returned while running Expand node. Name:'/Expand_2' Status Message: /onnxruntime_src/onnxruntime/core/framework/op_kernel.cc:83 virtual OrtValue* onn ...
+2026-09-26 03:11:49.120929644 [E:onnxruntime:, sequential_executor.cc:671 ExecuteKernel] Non-zero status code returned while running Loop node. Name:'/Loop' Status Message: Non-zero status code returned while running Expand node. Name:'/Expand_2' Status Messag ...
+chunk_text 'Version 2.5 is out. Dr. Smith said so!' -> ['Version 2.5 is out.', 'Dr. Smith said so!']
+chunk_text 'Is it ready? Yes!' -> ['Is it ready?', 'Yes!']
+chunk_text 'Pi is 3.14159.' -> ['Pi is 3.14159.']
+[ERR] empty string: ValueError: need at least one array to concatenate
+[ERR] whitespace only: ValueError: need at least one array to concatenate
+[OK ] only punctuation: 0.37s audio, 0.50s wall
+[OK ] short 'OK.': 2.12s audio, 1.95s wall
+[OK ] short 'Yes.': 0.04s audio, 0.26s wall
+[OK ] hindi devanagari: 4.27s audio, 2.82s wall
+[OK ] accents: 2.94s audio, 1.84s wall
+[OK ] emoji: 2.24s audio, 1.45s wall
+[ERR] bad voice: ValueError: Voice 'jasper' not available. Choose from: ['expr-voice-2-m', 'expr-voice-2-f', 'expr-voice-3-m', 'expr-voice-3-f', 'expr-voice-4-m', 'expr-voice-4-f', 'expr-voice-5-m', 'expr-voice-5-f']
+[ERR] speed 0: Fail: [ONNXRuntimeError] : 1 : FAIL : Non-zero status code returned while running Loop node. Name:'/Loop' Status Message: Non-zero status code returned while running Expand node. Name:'/Expand_2' Status Message: /onnxruntime_src/onnxruntime/core ...
+[OK ] speed -1: 0.19s audio, 0.28s wall
+[ERR] generate_to_file clean_text=False (README documents it): TypeError: KittenTTS.generate_to_file() got an unexpected keyword argument 'clean_text'
+[OK ] 600 words no punctuation: 162.78s audio, 137.51s wall
+[OK ] 'Pay $12.50 by 3:05 pm' clean_text=False: 3.54s audio, 3.48s wall
+[OK ] 'Pay $12.50 by 3:05 pm' clean_text=True: 4.12s audio, 3.18s wall

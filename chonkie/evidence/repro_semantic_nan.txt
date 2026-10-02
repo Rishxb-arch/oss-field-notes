@@ -1,0 +1,5 @@
+chonkie/embeddings/model2vec.py:67: RuntimeWarning: invalid value encountered in divide
+  return np.divide(np.dot(u, v), np.linalg.norm(u) * np.linalg.norm(v), dtype=np.float32)
+norm(embed(box)) = 0.0 | similarity(box, 'hello') = nan
+chonkie 1.7.0 | RuntimeWarnings during chunk(): ['invalid value encountered in divide']
+  chunk: 'Cactus runs models on phones. It supports LoRA merges.\n┌──────────────'

@@ -1,0 +1,158 @@
+[
+ {
+  "kind": "id",
+  "q": "0x10",
+  "secs": 4.7,
+  "no_match": false,
+  "hits": [
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §26.5 SLC Registers, pp.577–578",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §25.3 HASH functional description, p.774",
+   "Intel 64 and IA-32 Architectures Software Developer's Manual, Combined Volumes 1, 2ABCD, 3ABCD, 4 (Order No. 325462-091) — §1 Timer Deadline                    Wake due to timer expiration, such as, p.4465"
+  ],
+  "first_snippet": "ing mode. (WO)\n>         SLC0INT_SLC0_TX_OVF_INT_CLR Set this bit to clear the Slave receiving overflow interrupt. (WO)\n>         SLC0INT_SLC0_RX_UDF_INT_CLR Set this bit to clear the Slave sending underflow interrupt. ("
+ },
+ {
+  "kind": "id",
+  "q": "FC06",
+  "secs": 3.6,
+  "no_match": false,
+  "hits": [
+   "Intel 64 and IA-32 Architectures Software Developer's Manual, Combined Volumes 1, 2ABCD, 3ABCD, 4 (Order No. 325462-091) — §32 RELOAD_FC0, p.4799",
+   "Intel 64 and IA-32 Architectures Software Developer's Manual, Combined Volumes 1, 2ABCD, 3ABCD, 4 (Order No. 325462-091) — §32 RELOAD_FC0, p.4803",
+   "Intel 64 and IA-32 Architectures Software Developer's Manual, Combined Volumes 1, 2ABCD, 3ABCD, 4 (Order No. 325462-091) — §32 RELOAD_FC0, p.4806"
+  ],
+  "first_snippet": "32                      RELOAD_FC0\n>                         Reload GP2 when FC0 overflows.\n_ref: `325462-091-sdm-vol-1-2abcd-3abcd-4-v2-1:32:1294:0`\n\n### Intel 64 and IA-32 Architectures Software Developer's Manual, Com"
+ },
+ {
+  "kind": "id",
+  "q": "Modbus exception code 02",
+  "secs": 2.6,
+  "no_match": false,
+  "hits": [
+   "MODBUS Application Protocol Specification V1.1b3 — §7 MODBUS Exception Responses, pp.47–48",
+   "MODBUS Application Protocol Specification V1.1b3 — §7 MODBUS Exception Responses, p.47",
+   "MODBUS Application Protocol Specification V1.1b3 — §5 Currently in Listen Only Mode, p.39"
+  ],
+  "first_snippet": "A listing of exception codes begins on the next page.\n>                                MODBUS Exception Codes\n> Code   Name                                Meaning\n> 01     ILLEGAL FUNCTION                    The function"
+ },
+ {
+  "kind": "id",
+  "q": "*IDN?",
+  "secs": 3.9,
+  "no_match": false,
+  "hits": [
+   "Tektronix MDO4000C/MDO4000B/MDO4000/MSO4000B/DPO4000B/MDO3000 Series Oscilloscopes Programmer Manual — pp.372–373",
+   "SCPI - Standard Commands for Programmable Instruments, Volume 1: Syntax and Style (1999) — §24 Reference, 20.7., pp.18–19",
+   "Tektronix MDO4000C/MDO4000B/MDO4000/MSO4000B/DPO4000B/MDO3000 Series Oscilloscopes Programmer Manual — p.372"
+  ],
+  "first_snippet": "Related Commands     *IDN?\n>                 Examples     ID? might return ID TEK/MDO4104-3,CF:91.1CT FV:v2.95144\n>                              DPO4EMBD:V1.00 DPO4USB:V1.00 DPO4ENET:V1.00. This indicates the\n>          "
+ },
+ {
+  "kind": "id",
+  "q": "IEEE 1547 clause 6.4.1",
+  "secs": 3.2,
+  "no_match": true,
+  "hits": [
+   "SunSpec Modbus IEEE 1547-2018 Profile Specification and Implementation Guide — §2.4 Monitoring Information, p.11",
+   "SunSpec Modbus IEEE 1547-2018 Profile Specification and Implementation Guide — §2.16 Limit Maximum Active Power, p.23",
+   "IEEE Std 1547.1-2020 Conformance Test Procedures — §3 Park Avenue, New York, NY 10016-5997, USA, pp.10–11"
+  ],
+  "first_snippet": "2.4 Monitoring Information\n> This section describes the monitoring information content as specified in IEEE 1547-2018.\n> The table below contains the IEEE 1547-2018 required monitoring information, the associated\n> IEEE "
+ },
+ {
+  "kind": "id",
+  "q": "SYST_RVR reload value maximum",
+  "secs": 4.0,
+  "no_match": false,
+  "hits": [
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.250",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.249",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.250"
+  ],
+  "first_snippet": "4.4.2   SysTick Reload Value Register\n>                          The SYST_RVR register specifies the start value to load into the SYST_CVR register. See the\n>                          register summary in Table 4-32 on pa"
+ },
+ {
+  "kind": "id",
+  "q": "CONTROL.SPSEL",
+  "secs": 3.2,
+  "no_match": false,
+  "hits": [
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §2.1 Programmers model, p.22",
+   "SCPI - Standard Commands for Programmable Instruments, Volume 1: Syntax and Style (1999) — §8 HP066,JPChange, p.252",
+   "Tektronix MDO4000C/MDO4000B/MDO4000/MSO4000B/DPO4000B/MDO3000 Series Oscilloscopes Programmer Manual — §2 ns duration., p.769"
+  ],
+  "first_snippet": "Bits       Name             Function\n>  [31:3]     -                Reserved.\n>  [2]        FPCA             When floating-point is implemented this bit indicates whether context floating-point is currently active:\n>    "
+ },
+ {
+  "kind": "absent",
+  "q": "RP2040 SIO CPUID register offset",
+  "secs": 3.5,
+  "no_match": false,
+  "hits": [
+   "Arm Cortex-M4 Technical Reference Manual (ARM DDI 0439C, r0p1) — §4.2 Register summary, p.55",
+   "Arm Cortex-M4 Technical Reference Manual (ARM DDI 0439C, r0p1) — §8.1 About debug, pp.81–82",
+   "Intel 64 and IA-32 Architectures Software Developer's Manual, Combined Volumes 1, 2ABCD, 3ABCD, 4 (Order No. 325462-091) — pp.5158–5159"
+  ],
+  "first_snippet": "4.2     Register summary\n>                       Table 4-1 shows the system control registers. Registers not described in this chapter are\n>                       described in the ARMv7-M Architecture Reference Manual\n> "
+ },
+ {
+  "kind": "absent",
+  "q": "ESP32 GPIO_ENABLE_W1TS_REG address",
+  "secs": 3.7,
+  "no_match": false,
+  "hits": [
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §6.12 Register Summary, p.135",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §6.13 Registers, p.140",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §31.6 Registers, pp.767–768"
+  ],
+  "first_snippet": "Chapter 6 IO MUX and GPIO Matrix (GPIO, IO MUX)                                                     GoBack\n>  Name                               Description                                           Address        Access"
+ },
+ {
+  "kind": "absent",
+  "q": "nRF52840 RADIO TXPOWER register",
+  "secs": 3.3,
+  "no_match": true,
+  "hits": [
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §2.7 Project Configuration, p.1930",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §11.5 TJpgDec License, p.3201",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — pp.1113–1114"
+  ],
+  "first_snippet": "Available options:\n>               • Native 15.4 radio (CONFIG_OPENTHREAD_RADIO_NATIVE)\n>                 Select this to use the native 15.4 radio.\n>               • Connect via UART (CONFIG_OPENTHREAD_RADIO_SPINEL_UART)"
+ },
+ {
+  "kind": "fake",
+  "q": "SYST_FOOBAR register reset value",
+  "secs": 3.2,
+  "no_match": false,
+  "hits": [
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, pp.249–250",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.249",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.251"
+  ],
+  "first_snippet": "4.4.1   SysTick Control and Status Register\n>                              The SysTick SYST_CSR register enables the SysTick features. The register resets to\n>                              0x00000000, or to 0x00000004 if"
+ },
+ {
+  "kind": "fake",
+  "q": "Modbus function code 0x7E Quantum Flux Write",
+  "secs": 3.4,
+  "no_match": false,
+  "hits": [
+   "MODBUS over Serial Line Specification and Implementation Guide V1.02 — §6.2 Appendix B - LRC/CRC Generation, p.43",
+   "ISO/IEC 9899:2011 - Programming languages - C (C11), N1570 Committee Draft — §3 The creal functions return the real part value., pp.218–219",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §2.8 Provisioning API, p.1971"
+  ],
+  "first_snippet": "};\n> Low-Order Byte Table\n> /* Table of CRC values for low–order byte */\n> static char auchCRCLo[] = {\n>     0x00, 0xC0, 0xC1, 0x01, 0xC3, 0x03, 0x02, 0xC2, 0xC6, 0x06, 0x07, 0xC7, 0x05, 0xC5, 0xC4,\n>     0x04, 0xCC, 0x0"
+ },
+ {
+  "kind": "offtopic",
+  "q": "how do I bake sourdough bread",
+  "secs": 3.7,
+  "no_match": true,
+  "hits": [
+   "Matplotlib Documentation (Release 3.11.0) — §4 are sorted into 3 bins:, pp.1034–1035",
+   "SunSpec Open-Source Program webinar deck (2025) — pp.53–57",
+   "AWS IoT Core Developer Guide — §8 hours., pp.1833–1834"
+  ],
+  "first_snippet": "1030                                                                                  Chapter 6. Examples\n>                                                                                    (continued from previous page"
+ }
+]

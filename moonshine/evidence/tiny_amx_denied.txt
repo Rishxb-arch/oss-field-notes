@@ -1,0 +1,8 @@
+[noamx] denied ARCH_REQ_XCOMP_PERM
+TINY distinct=1/6
+    'Ever tried. Ever failed. No matter. Try again. Fare again. Fell better.'
+    'Ever tried. Ever failed. No matter. Try again. Fare again. Fell better.'
+    'Ever tried. Ever failed. No matter. Try again. Fare again. Fell better.'
+    'Ever tried. Ever failed. No matter. Try again. Fare again. Fell better.'
+    'Ever tried. Ever failed. No matter. Try again. Fare again. Fell better.'
+    'Ever tried. Ever failed. No matter. Try again. Fare again. Fell better.'

@@ -1,0 +1,3 @@
+# docker compose pull (README one-liner, docker-compose.yaml line 60: image: quay.io/minio/minio), 26 Sep 2026
+ minio Error unauthorized: access to the requested resource is not authorized
+Error response from daemon: unauthorized: access to the requested resource is not authorized

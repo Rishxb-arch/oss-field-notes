@@ -1,0 +1,20 @@
+2026-09-26 03:09:44.714278141 [E:onnxruntime:, sequential_executor.cc:671 ExecuteKernel] Non-zero status code returned while running Expand node. Name:'/Expand_2' Status Message: /onnxruntime_src/onnxruntime/core/framework/op_kernel.cc:83 virtual OrtValue* onn ...
+2026-09-26 03:09:44.714581888 [E:onnxruntime:, sequential_executor.cc:671 ExecuteKernel] Non-zero status code returned while running Loop node. Name:'/Loop' Status Message: Non-zero status code returned while running Expand node. Name:'/Expand_2' Status Messag ...
+chunk_text 'Version 2.5 is out. Dr. Smith said so!' -> ['Version 2,', '5 is out,', 'Dr,', 'Smith said so,']
+chunk_text 'Is it ready? Yes!' -> ['Is it ready,', 'Yes,']
+chunk_text 'Pi is 3.14159.' -> ['Pi is 3,', '14159,']
+[ERR] empty string: ValueError: need at least one array to concatenate
+[ERR] whitespace only: ValueError: need at least one array to concatenate
+[ERR] only punctuation: ValueError: need at least one array to concatenate
+[OK ] short 'OK.': 1.32s audio, 0.84s wall
+[OK ] short 'Yes.': 1.17s audio, 0.77s wall
+[OK ] hindi devanagari: 3.79s audio, 2.32s wall
+[OK ] accents: 2.94s audio, 1.68s wall
+[OK ] emoji: 2.22s audio, 1.44s wall
+[ERR] bad voice: ValueError: Voice 'jasper' not available. Choose from: ['expr-voice-2-m', 'expr-voice-2-f', 'expr-voice-3-m', 'expr-voice-3-f', 'expr-voice-4-m', 'expr-voice-4-f', 'expr-voice-5-m', 'expr-voice-5-f']
+[ERR] speed 0: Fail: [ONNXRuntimeError] : 1 : FAIL : Non-zero status code returned while running Loop node. Name:'/Loop' Status Message: Non-zero status code returned while running Expand node. Name:'/Expand_2' Status Message: /onnxruntime_src/onnxruntime/core ...
+[OK ] speed -1: 0.19s audio, 0.24s wall
+[ERR] generate_to_file clean_text=False (README documents it): TypeError: KittenTTS.generate_to_file() got an unexpected keyword argument 'clean_text'
+[OK ] 600 words no punctuation: 161.93s audio, 92.10s wall
+[OK ] 'Pay $12.50 by 3:05 pm' clean_text=False: 4.48s audio, 3.13s wall
+[OK ] 'Pay $12.50 by 3:05 pm' clean_text=True: 2.57s audio, 2.28s wall

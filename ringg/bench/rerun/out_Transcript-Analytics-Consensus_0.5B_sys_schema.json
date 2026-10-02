@@ -1,0 +1,92 @@
+[
+ {
+  "case": "ptp_hinglish",
+  "gold": "PROMISE_TO_PAY",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "call_outcome",
+   "customer_sentiment"
+  ],
+  "in_tokens": 336,
+  "out_tokens": 20,
+  "secs": 2.5,
+  "text": "{\"call_outcome\": \"ALREADY_PAID\",\"customer_sentiment\": \"POSITIVE\"}\n"
+ },
+ {
+  "case": "paid_devanagari",
+  "gold": "ALREADY_PAID",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "call_outcome",
+   "customer_sentiment"
+  ],
+  "in_tokens": 480,
+  "out_tokens": 20,
+  "secs": 1.4,
+  "text": "{\"call_outcome\": \"ALREADY_PAID\",\"customer_sentiment\": \"NEGATIVE\"}\n"
+ },
+ {
+  "case": "refused_english",
+  "gold": "REFUSED",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "call_outcome",
+   "customer_sentiment"
+  ],
+  "in_tokens": 289,
+  "out_tokens": 18,
+  "secs": 1.1,
+  "text": "{\"call_outcome\": \"REFUSED\",\"customer_sentiment\": \"NEGATIVE\"}\n"
+ },
+ {
+  "case": "callback_noisy_asr",
+  "gold": "CALLBACK_REQUESTED",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "call_outcome",
+   "customer_sentiment"
+  ],
+  "in_tokens": 291,
+  "out_tokens": 20,
+  "secs": 1.2,
+  "text": "{\"call_outcome\": \"CALLBACK_REQUESTED\",\"customer_sentiment\": \"NEGATIVE\"}\n"
+ },
+ {
+  "case": "wrong_number",
+  "gold": "WRONG_NUMBER",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "call_outcome",
+   "customer_sentiment"
+  ],
+  "in_tokens": 295,
+  "out_tokens": 18,
+  "secs": 1.3,
+  "text": "{\"call_outcome\": \"NO_RESPONSE\",\"customer_sentiment\": \"NEGATIVE\"}\n"
+ },
+ {
+  "case": "empty",
+  "gold": "NO_RESPONSE",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "call_outcome",
+   "customer_sentiment"
+  ],
+  "in_tokens": 249,
+  "out_tokens": 18,
+  "secs": 1.1,
+  "text": "{\"call_outcome\": \"NO_RESPONSE\",\"customer_sentiment\": \"NEGATIVE\"}\n"
+ }
+]

@@ -1,0 +1,100 @@
+diff --git a/src/chonkie/embeddings/model2vec.py b/src/chonkie/embeddings/model2vec.py
+index 80312e0..9a69021 100644
+--- a/src/chonkie/embeddings/model2vec.py
++++ b/src/chonkie/embeddings/model2vec.py
+@@ -64,7 +64,11 @@ class Model2VecEmbeddings(BaseEmbeddings):
+ 
+     def similarity(self, u: np.ndarray, v: np.ndarray) -> np.float32:
+         """Compute cosine similarity of two embeddings."""
+-        return np.divide(np.dot(u, v), np.linalg.norm(u) * np.linalg.norm(v), dtype=np.float32)
++        denom = np.linalg.norm(u) * np.linalg.norm(v)
++        if denom == 0:
++            # e.g. a line of box-drawing characters embeds to an all-zero vector; avoid 0/0 = NaN
++            return np.float32(0.0)
++        return np.divide(np.dot(u, v), denom, dtype=np.float32)
+ 
+     def get_tokenizer(self) -> "Tokenizer":
+         """Get the tokenizer or token counter for the model."""
+diff --git a/src/chonkie/pipeline/pipeline.py b/src/chonkie/pipeline/pipeline.py
+index b9fc0d9..05b5d36 100644
+--- a/src/chonkie/pipeline/pipeline.py
++++ b/src/chonkie/pipeline/pipeline.py
+@@ -442,7 +442,7 @@ class Pipeline:
+             try:
+                 data = self._execute_step(step, data)
+             except Exception as e:
+-                raise RuntimeError(f"Pipeline failed at step {i + 1} ({step['type']}): {e}") from e
++                raise RuntimeError(f"Pipeline failed at step {i + 1} ({step['type']}: {self._describe_step(step)}; step numbering includes the implicit TextChef): {e}") from e
+ 
+         return data  # ty: ignore[invalid-return-type]
+ 
+@@ -477,10 +477,18 @@ class Pipeline:
+             try:
+                 data = await self._aexecute_step(step, data)
+             except Exception as e:
+-                raise RuntimeError(f"Pipeline failed at step {i + 1} ({step['type']}): {e}") from e
++                raise RuntimeError(f"Pipeline failed at step {i + 1} ({step['type']}: {self._describe_step(step)}; step numbering includes the implicit TextChef): {e}") from e
+ 
+         return data  # ty: ignore[invalid-return-type]
+ 
++    def _describe_step(self, step: dict[str, Any]) -> str:
++        """Describe a step the way the user wrote it (the implicit TextChef shifts numeric indices)."""
++        comp = step.get("component")
++        name = getattr(comp, "alias", None) or getattr(comp, "name", None) or str(comp)
++        verb = {"fetch": "fetch_from", "process": "process_with", "chunk": "chunk_with",
++                "refine": "refine_with", "export": "export_with", "write": "store_in"}.get(step["type"], step["type"])
++        return f"{verb}({name!r})"
++
+     def _reorder_steps(self) -> list[dict[str, Any]]:
+         """Reorder pipeline steps according to CHOMP flow.
+ 
+diff --git a/src/chonkie/utils/hub.py b/src/chonkie/utils/hub.py
+index 5e17955..169dbb5 100644
+--- a/src/chonkie/utils/hub.py
++++ b/src/chonkie/utils/hub.py
+@@ -12,7 +12,7 @@ def _get_recipe_schema(version: str) -> dict:
+     # This is memoized to avoid multiple downloads of the same schema;
+     # we wouldn't expect a version to change during the runtime of a process.
+ 
+-    from huggingface_hub import hf_hub_download
++    hf_hub_download = _import_hf_hub_download()
+ 
+     path = hf_hub_download(
+         repo_id="chonkie-ai/recipes",
+@@ -22,6 +22,18 @@ def _get_recipe_schema(version: str) -> dict:
+     return dict(json.loads(Path(path).read_bytes()))
+ 
+ 
++def _import_hf_hub_download():
++    """Import hf_hub_download with an actionable error when the optional extra is missing."""
++    try:
++        from huggingface_hub import hf_hub_download
++    except ImportError as e:
++        raise ImportError(
++            "Recipes are downloaded from the Hugging Face Hub, which needs the optional "
++            "'hub' extra. Install it with: pip install \"chonkie[hub]\""
++        ) from e
++    return hf_hub_download
++
++
+ class Hubbie:
+     """Hubbie is a Huggingface hub manager for Chonkie.
+ 
+@@ -100,7 +112,7 @@ class Hubbie:
+         if (name is None or lang is None) and path is None:
+             raise ValueError("Either (name & lang) or path must be provided.")
+ 
+-        from huggingface_hub import hf_hub_download
++        hf_hub_download = _import_hf_hub_download()
+ 
+         # If path is not provided, download the recipe from the hub
+         if path is None and (name is not None and lang is not None):
+@@ -162,7 +174,7 @@ class Hubbie:
+         """
+         # If path is not provided, download the recipe from the hub
+         if path is None:
+-            from huggingface_hub import hf_hub_download
++            hf_hub_download = _import_hf_hub_download()
+ 
+             try:
+                 path = hf_hub_download(

@@ -1,0 +1,31 @@
+diff --git a/src/fi/simulate/suite.py b/src/fi/simulate/suite.py
+index de20486..988fd11 100644
+--- a/src/fi/simulate/suite.py
++++ b/src/fi/simulate/suite.py
+@@ -64,6 +64,9 @@ _JSON_PATH_ASSERTIONS = (
+     | _JSON_PATH_NOT_CONTAINS_ASSERTIONS
+ )
+ 
++# Plain-text assertion tokens handled directly in ``_evaluate_assertion``.
++_BASIC_ASSERTIONS = {"contains", "not_contains", "equals", "equal", "is", "regex", "matches"}
++
+ # Assertion tokens that score the case output with a hosted FutureAGI eval
+ # template via ``fi.evals.evaluate`` (platform/turing engine by default,
+ # using FI_API_KEY / FI_SECRET_KEY / FI_BASE_URL). Pass = score >= threshold.
+@@ -533,6 +536,16 @@ def _normalize_assertion(assertion: Any, test_id: str, index: int) -> Dict[str,
+     if "value" not in item and "expected" in item:
+         item["value"] = item.get("expected")
+     assertion_type = str(item["type"])
++    known_types = _BASIC_ASSERTIONS | _JSON_PATH_ASSERTIONS | _FI_EVAL_ASSERTIONS
++    if assertion_type not in known_types:
++        import difflib
++
++        prefixed = sorted(t for t in known_types if t.startswith(assertion_type))
++        hint = prefixed[:1] or difflib.get_close_matches(assertion_type, sorted(known_types), n=1)
++        raise ManifestError(
++            f"assertion {index} in test `{test_id}` has unsupported type "
++            f"`{assertion_type}`" + (f"; did you mean `{hint[0]}`?" if hint else "")
++        )
+     if assertion_type in _JSON_PATH_ASSERTIONS and not item.get("path"):
+         raise ManifestError(f"assertion {index} in test `{test_id}` requires a path")
+     if assertion_type in _FI_EVAL_ASSERTIONS:

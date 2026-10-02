@@ -1,0 +1,14 @@
+# text-only pipeline (pipelines=[["llm"]]), first user message, turn_based_conversation=True, unpatched (original run 26 Sep 2026)
+2026-09-26 03:17:19.939 INFO  {default} [process_message] Received text: yes speaking
+2026-09-26 03:17:19.939 INFO  {default} [__process_text] Sequences {'text': 0}
+Traceback (most recent call last):
+  File "<venv>/bolna/input_handlers/default.py", line 282, in _listen
+    await self.process_message(request)
+  File "<venv>/bolna/input_handlers/default.py", line 316, in process_message
+    self.__process_text(message["data"])
+  File "<venv>/bolna/input_handlers/default.py", line 267, in __process_text
+    data=text, meta_info={"io": "default", "type": "text", "sequence": self.input_types["audio"]}
+                                                                       ~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'audio'
+2026-09-26 03:17:19.940 INFO  {default} [_listen] Error while handling websocket message: 'audio'
+2026-09-26 03:17:19.940 INFO  {task_manager} [_listen_llm_input_queue] ws_data_packet {'data': None, 'meta_info': {'io': 'default', 'eos': True, 'is_md5_hash': False, 'llm_generated': False}}

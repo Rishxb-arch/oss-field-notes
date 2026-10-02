@@ -1,0 +1,96 @@
+[
+ {
+  "case": "ptp_hinglish",
+  "gold": "PROMISE_TO_PAY",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "classification",
+   "summary"
+  ],
+  "in_tokens": 280,
+  "out_tokens": 37,
+  "secs": 2.4,
+  "text": "{\"summary\": \"The customer confirmed they would pay the overdue amount of 4500 rupees by the 28th.\",\"classification\": \"ALREADY_PAID\"}\n"
+ },
+ {
+  "case": "paid_devanagari",
+  "gold": "ALREADY_PAID",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "classification",
+   "summary"
+  ],
+  "in_tokens": 424,
+  "out_tokens": 40,
+  "secs": 2.9,
+  "text": "{\"summary\": \"The customer has already made a payment via UPI and requested to be contacted by Skype. The agent confirmed that they will contact them.\",\"classification\": \"ALREADY_PAID\"}\n"
+ },
+ {
+  "case": "refused_english",
+  "gold": "REFUSED",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "classification",
+   "summary"
+  ],
+  "in_tokens": 233,
+  "out_tokens": 33,
+  "secs": 2.5,
+  "text": "{\"summary\": \"The customer states they are not paying and that the product was defective, but insists on not being called again.\",\"classification\": \"REFUSED\"}\n"
+ },
+ {
+  "case": "callback_noisy_asr",
+  "gold": "CALLBACK_REQUESTED",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "action_items",
+   "classification",
+   "key_points",
+   "summary"
+  ],
+  "in_tokens": 235,
+  "out_tokens": 32,
+  "secs": 2.0,
+  "text": "{\"key_points\": [], \"action_items\": [], \"summary\": \"The customer requested a callback in six minutes.\",\"classification\": \"CALLBACK_REQUESTED\"}\n"
+ },
+ {
+  "case": "wrong_number",
+  "gold": "WRONG_NUMBER",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "classification",
+   "summary"
+  ],
+  "in_tokens": 239,
+  "out_tokens": 33,
+  "secs": 1.9,
+  "text": "{\"summary\": \"The customer states that they are not Sunita Sharma and requests to be updated on a different number.\",\"classification\": \"WRONG_NUMBER\"}\n"
+ },
+ {
+  "case": "empty",
+  "gold": "NO_RESPONSE",
+  "pred": null,
+  "json_ok": true,
+  "fenced": false,
+  "keys": [
+   "action_items",
+   "classification",
+   "key_points",
+   "summary"
+  ],
+  "in_tokens": 193,
+  "out_tokens": 42,
+  "secs": 2.5,
+  "text": "{\"key_points\": [], \"action_items\": [], \"summary\": \"The agent attempted to connect with the user but did not establish a proper conversation or provide any payment information.\",\"classification\": \"NO_RESPONSE\"}\n"
+ }
+]
