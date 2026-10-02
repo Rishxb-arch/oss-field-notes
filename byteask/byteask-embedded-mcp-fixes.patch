@@ -1,0 +1,176 @@
+diff --git a/src/byteask_embedded_mcp/config.py b/src/byteask_embedded_mcp/config.py
+index 55b90e3..1a4b015 100644
+--- a/src/byteask_embedded_mcp/config.py
++++ b/src/byteask_embedded_mcp/config.py
+@@ -21,8 +21,21 @@ def _env(name: str, default: str) -> str:
+ 
+ 
+ def _project_root() -> Path:
+-    # src/byteask_embedded_mcp/config.py -> project root is three parents up.
+-    return Path(__file__).resolve().parents[2]
++    """Where `.env` and relative log paths resolve.
++
++    In a source checkout (src/byteask_embedded_mcp/config.py) that is the repo
++    root, three parents up. In an installed package (pip / uvx / Smithery) that
++    path would be ``<venv>/lib/pythonX.Y`` -- so .env next to the user's project
++    was ignored and logs landed inside the virtualenv. Fall back to the current
++    working directory there. ``BYTEASK_ROOT`` overrides both.
++    """
++    override = os.getenv("BYTEASK_ROOT", "").strip()
++    if override:
++        return Path(override).expanduser().resolve()
++    here = Path(__file__).resolve()
++    if here.parent.parent.name == "src" and (here.parents[2] / "pyproject.toml").exists():
++        return here.parents[2]
++    return Path.cwd()
+ 
+ 
+ @dataclass(frozen=True)
+diff --git a/src/byteask_embedded_mcp/http_auth.py b/src/byteask_embedded_mcp/http_auth.py
+index b8309c5..707d1d8 100644
+--- a/src/byteask_embedded_mcp/http_auth.py
++++ b/src/byteask_embedded_mcp/http_auth.py
+@@ -11,6 +11,7 @@ mTLS, or a trusted reverse proxy) before exposing publicly.
+ 
+ from __future__ import annotations
+ 
++import hmac
+ import logging
+ 
+ from mcp.server.fastmcp import FastMCP
+@@ -28,7 +29,7 @@ class BearerTokenMiddleware:
+ 
+     def __init__(self, app, token: str) -> None:
+         self.app = app
+-        self._expected = f"Bearer {token}".encode()
++        self._token = token.encode()
+ 
+     async def __call__(self, scope, receive, send) -> None:
+         if scope["type"] != "http":
+@@ -36,7 +37,10 @@ class BearerTokenMiddleware:
+             return
+ 
+         headers = dict(scope.get("headers") or [])
+-        if headers.get(b"authorization") == self._expected:
++        scheme, _, presented = (headers.get(b"authorization") or b"").partition(b" ")
++        # RFC 6750/7235: the auth scheme is case-insensitive; compare the secret
++        # in constant time so the stub does not leak it via response timing.
++        if scheme.lower() == b"bearer" and hmac.compare_digest(presented.strip(), self._token):
+             await self.app(scope, receive, send)
+             return
+ 
+diff --git a/src/byteask_embedded_mcp/server.py b/src/byteask_embedded_mcp/server.py
+index 9d2faf8..883d506 100644
+--- a/src/byteask_embedded_mcp/server.py
++++ b/src/byteask_embedded_mcp/server.py
+@@ -27,7 +27,9 @@ from mcp.server.fastmcp import FastMCP
+ 
+ from .backend import load_backend
+ from .config import Config
+-from .obs import JsonlWriter, configure_stderr_logging
++import time
++
++from .obs import JsonlWriter, QueryLogger, configure_stderr_logging
+ from .render import render_context, render_search
+ 
+ logger = logging.getLogger("byteask_embedded_mcp")
+@@ -137,6 +139,21 @@ def _svc():
+     return _backend
+ 
+ 
++# Per-call query log (logs/queries.jsonl). QueryLogger existed in obs.py but was
++# never wired, so search_docs / get_context calls were not logged anywhere.
++_query_log: QueryLogger | None = None
++
++
++def _qlog(record: dict) -> None:
++    global _query_log
++    try:
++        if _query_log is None:
++            _query_log = QueryLogger(Config.load().log_dir)
++        _query_log.log(record)
++    except Exception:  # logging must never break a tool call
++        logger.exception("query logging failed")
++
++
+ @mcp.tool(description=SEARCH_DOCS_DESCRIPTION)
+ def search_docs(query: str, limit: int = 8, effort: str | None = None) -> str:
+     """Search the reference corpus; return verbatim, page-cited evidence.
+@@ -151,7 +168,12 @@ def search_docs(query: str, limit: int = 8, effort: str | None = None) -> str:
+         limit: Max hits to return (default 8).
+         effort: Internal diagnostics tag; clients should leave this unset.
+     """
+-    return render_search(_svc().search(query, limit=limit, effort=effort))
++    t0 = time.perf_counter()
++    result = _svc().search(query, limit=limit, effort=effort)
++    _qlog({"tool": "search_docs", "query": query, "limit": limit,
++           "status": result.get("status"), "result_count": result.get("count", 0),
++           "latency_ms": (time.perf_counter() - t0) * 1000})
++    return render_search(result)
+ 
+ 
+ @mcp.tool()
+@@ -162,7 +184,12 @@ def get_context(result_id: str, effort: str | None = None) -> str:
+         result_id: The result_id from a search_docs hit.
+         effort: Internal diagnostics tag; clients should leave this unset.
+     """
+-    return render_context(_svc().get_context(result_id, effort=effort))
++    t0 = time.perf_counter()
++    result = _svc().get_context(result_id, effort=effort)
++    _qlog({"tool": "get_context", "query": result_id, "status": result.get("status"),
++           "result_count": int(result.get("status") == "ok"),
++           "latency_ms": (time.perf_counter() - t0) * 1000})
++    return render_context(result)
+ 
+ 
+ # Lazy, lightweight JSONL sink for document requests. Deliberately independent of
+diff --git a/tests/test_fixes.py b/tests/test_fixes.py
+new file mode 100644
+index 0000000..204302e
+--- /dev/null
++++ b/tests/test_fixes.py
+@@ -0,0 +1,44 @@
++import asyncio, json
++from pathlib import Path
++
++from byteask_embedded_mcp import config as cfg, server
++from byteask_embedded_mcp.http_auth import BearerTokenMiddleware
++
++
++def test_search_docs_writes_query_log(tmp_path, monkeypatch):
++    monkeypatch.setenv("BYTEASK_LOGS", str(tmp_path))
++    monkeypatch.setattr(server, "_query_log", None)
++    server.search_docs("modbus function code 16")
++    server.get_context("sample:modbus-fc16")
++    recs = [json.loads(l) for l in (tmp_path / "queries.jsonl").read_text().splitlines()]
++    assert [r["tool"] for r in recs] == ["search_docs", "get_context"]
++    assert recs[0]["status"] == "ok" and recs[0]["result_count"] >= 1
++
++
++def test_installed_package_resolves_root_to_cwd(tmp_path, monkeypatch):
++    fake = tmp_path / "venv" / "lib" / "python3.12" / "site-packages" / "byteask_embedded_mcp" / "config.py"
++    fake.parent.mkdir(parents=True); fake.write_text("")
++    monkeypatch.setattr(cfg, "__file__", str(fake))
++    monkeypatch.chdir(tmp_path)
++    monkeypatch.delenv("BYTEASK_ROOT", raising=False)
++    assert cfg._project_root() == tmp_path
++    monkeypatch.setenv("BYTEASK_ROOT", str(tmp_path / "x"))
++    assert cfg._project_root() == (tmp_path / "x").resolve()
++
++
++def _call(mw, auth):
++    sent = []
++    async def app(scope, receive, send): sent.append(200)
++    async def send(msg):
++        if msg["type"] == "http.response.start": sent.append(msg["status"])
++    m = BearerTokenMiddleware(app, "s3cret")
++    hdrs = [(b"authorization", auth)] if auth is not None else []
++    asyncio.run(m({"type": "http", "headers": hdrs}, None, send))
++    return sent[0]
++
++
++def test_bearer_scheme_case_insensitive_and_rejects_wrong():
++    assert _call(None, b"Bearer s3cret") == 200
++    assert _call(None, b"bearer s3cret") == 200
++    assert _call(None, b"Bearer nope") == 401
++    assert _call(None, None) == 401

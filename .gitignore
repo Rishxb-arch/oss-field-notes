@@ -1,0 +1,11 @@
+.venv*/
+__pycache__/
+*.so
+*.pyc
+agent_data/
+logs/
+models/
+server.log
+k.wav
+check.wav
+out*.wav

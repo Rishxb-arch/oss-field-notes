@@ -1,0 +1,56 @@
+[
+ {
+  "chunker": "token(512,ovl64)",
+  "chunks": 163,
+  "avg_chars": 1281,
+  "chunk_s": 0.04,
+  "hit1": "4/14",
+  "hit5": "12/14",
+  "offset_mismatches": 9
+ },
+ {
+  "chunker": "sentence(512)",
+  "chunks": 158,
+  "avg_chars": 1292,
+  "chunk_s": 0.09,
+  "hit1": "5/14",
+  "hit5": "13/14",
+  "offset_mismatches": 0
+ },
+ {
+  "chunker": "recursive(512)",
+  "chunks": 146,
+  "avg_chars": 1269,
+  "chunk_s": 0.03,
+  "hit1": "7/14",
+  "hit5": "11/14",
+  "offset_mismatches": 0
+ },
+ {
+  "chunker": "recursive-md(512)",
+  "chunks": 191,
+  "avg_chars": 970,
+  "chunk_s": 0.02,
+  "hit1": "5/14",
+  "hit5": "13/14",
+  "offset_mismatches": 0
+ },
+ {
+  "chunker": "semantic(512)",
+  "chunks": 797,
+  "avg_chars": 232,
+  "chunk_s": 1.03,
+  "hit1": "6/14",
+  "hit5": "9/14",
+  "offset_mismatches": 0
+ },
+ {
+  "chunker": "fast(2048B)",
+  "chunks": 99,
+  "avg_chars": 1872,
+  "chunk_s": 0.0,
+  "hit1": "9/14",
+  "hit5": "12/14",
+  "offset_mismatches": 0
+ }
+]

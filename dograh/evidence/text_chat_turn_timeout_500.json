@@ -1,0 +1,1 @@
+{"detail":"Failed to execute text chat assistant turn: Timed out waiting for text chat response window to settle (pending_context_requests=0, active_llm_completions=1, active_assistant_segments=1, blocking_tool_calls=[])"}

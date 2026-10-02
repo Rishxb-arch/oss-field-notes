@@ -1,0 +1,16 @@
+[noamx] denied ARCH_REQ_XCOMP_PERM
+BASE              opts=None distinct=1/4
+     'Ever tried. Ever failed. No matter. Try again. Fail again. Fail better.'
+     'Ever tried. Ever failed. No matter. Try again. Fail again. Fail better.'
+     'Ever tried. Ever failed. No matter. Try again. Fail again. Fail better.'
+     'Ever tried. Ever failed. No matter. Try again. Fail again. Fail better.'
+MEDIUM_STREAMING  opts=None distinct=1/4
+     'Ever tried? Ever failed. No matter. Try again. Fail again. Fail better.'
+     'Ever tried? Ever failed. No matter. Try again. Fail again. Fail better.'
+     'Ever tried? Ever failed. No matter. Try again. Fail again. Fail better.'
+     'Ever tried? Ever failed. No matter. Try again. Fail again. Fail better.'
+MEDIUM_STREAMING  opts={'use_speculative_decoding': 'false'} distinct=1/4
+     'Ever tried? Ever failed. No matter. Try again. Fail again. Fail better.'
+     'Ever tried? Ever failed. No matter. Try again. Fail again. Fail better.'
+     'Ever tried? Ever failed. No matter. Try again. Fail again. Fail better.'
+     'Ever tried? Ever failed. No matter. Try again. Fail again. Fail better.'

@@ -1,0 +1,288 @@
+[
+ {
+  "label": "real",
+  "q": "SYST_CSR COUNTFLAG",
+  "secs": 4.15,
+  "no_match": false,
+  "hit_titles": [
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, pp.249–250",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.249",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.250",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, pp.250–251",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.250"
+  ]
+ },
+ {
+  "label": "real",
+  "q": "SYST_RVR reload value",
+  "secs": 3.87,
+  "no_match": false,
+  "hit_titles": [
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.250",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.249",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.250",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, pp.250–251",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, pp.252–253"
+  ]
+ },
+ {
+  "label": "real",
+  "q": "SYST_CVR current value register",
+  "secs": 3.44,
+  "no_match": false,
+  "hit_titles": [
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, pp.250–251",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.249",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.250",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, pp.252–253",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.250"
+  ]
+ },
+ {
+  "label": "real",
+  "q": "CONTROL.SPSEL",
+  "secs": 2.66,
+  "no_match": false,
+  "hit_titles": [
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §2.1 Programmers model, p.22",
+   "SCPI - Standard Commands for Programmable Instruments, Volume 1: Syntax and Style (1999) — §8 HP066,JPChange, p.252",
+   "Tektronix MDO4000C/MDO4000B/MDO4000/MSO4000B/DPO4000B/MDO3000 Series Oscilloscopes Programmer Manual — §2 ns duration., p.769",
+   "SCPI - Standard Commands for Programmable Instruments, Volume 1: Syntax and Style (1999) — §22 MULTIPLE adds no measurement instructions., pp.795–796",
+   "Tektronix MDO4000C/MDO4000B/MDO4000/MSO4000B/DPO4000B/MDO3000 Series Oscilloscopes Programmer Manual — §2 ns duration., pp.768–769"
+  ]
+ },
+ {
+  "label": "real",
+  "q": "FC16 write multiple registers",
+  "secs": 3.63,
+  "no_match": false,
+  "hit_titles": [
+   "MODBUS Application Protocol Specification V1.1b3 — §5 Currently in Listen Only Mode, p.30",
+   "MODBUS Application Protocol Specification V1.1b3 — §5.1 Public Function Code Definition, p.11",
+   "PyModbus Documentation (Release 4.0.0dev11) — §70 Chapter 5. Simulator (3.x), pp.78–79",
+   "MODBUS Application Protocol Specification V1.1b3 — §5 Currently in Listen Only Mode, pp.37–38",
+   "MODBUS Application Protocol Specification V1.1b3 — §5 Currently in Listen Only Mode, p.38"
+  ]
+ },
+ {
+  "label": "real",
+  "q": "FC06",
+  "secs": 3.13,
+  "no_match": false,
+  "hit_titles": [
+   "Intel 64 and IA-32 Architectures Software Developer's Manual, Combined Volumes 1, 2ABCD, 3ABCD, 4 (Order No. 325462-091) — §32 RELOAD_FC0, p.4799",
+   "Intel 64 and IA-32 Architectures Software Developer's Manual, Combined Volumes 1, 2ABCD, 3ABCD, 4 (Order No. 325462-091) — §32 RELOAD_FC0, p.4803",
+   "Intel 64 and IA-32 Architectures Software Developer's Manual, Combined Volumes 1, 2ABCD, 3ABCD, 4 (Order No. 325462-091) — §32 RELOAD_FC0, p.4806",
+   "Intel 64 and IA-32 Architectures Software Developer's Manual, Combined Volumes 1, 2ABCD, 3ABCD, 4 (Order No. 325462-091) — §32 RELOAD_FC0, p.4805",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §6 FACCEN           Don’t c"
+  ]
+ },
+ {
+  "label": "real",
+  "q": "0x10 write multiple registers",
+  "secs": 3.59,
+  "no_match": false,
+  "hit_titles": [
+   "MODBUS Application Protocol Specification V1.1b3 — §5 Currently in Listen Only Mode, p.30",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §25.3 HASH functional descr",
+   "PyModbus Documentation (Release 4.0.0dev11) — §70 Chapter 5. Simulator (3.x), pp.78–79",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §2.2 Application Protocols, p.200",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §2.2 Application Protocols, pp.200–201"
+  ]
+ },
+ {
+  "label": "real",
+  "q": "Modbus exception code 0x02",
+  "secs": 3.6,
+  "no_match": false,
+  "hit_titles": [
+   "MODBUS Application Protocol Specification V1.1b3 — §7 MODBUS Exception Responses, pp.47–48",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §2.2 Application Protocols, p.200",
+   "MODBUS Application Protocol Specification V1.1b3 — §5 Currently in Listen Only Mode, pp.43–44",
+   "MODBUS Application Protocol Specification V1.1b3 — §27 is the MSB of this byte, and output 20 is the LSB., p.13",
+   "MODBUS Application Protocol Specification V1.1b3 — §27 is the MSB of this byte, and output 20 is the LSB., pp.12–13"
+  ]
+ },
+ {
+  "label": "real",
+  "q": "*IDN?",
+  "secs": 3.57,
+  "no_match": false,
+  "hit_titles": [
+   "Tektronix MDO4000C/MDO4000B/MDO4000/MSO4000B/DPO4000B/MDO3000 Series Oscilloscopes Programmer Manual — pp.372–373",
+   "SCPI - Standard Commands for Programmable Instruments, Volume 1: Syntax and Style (1999) — §24 Reference, 20.7., pp.18–19",
+   "Tektronix MDO4000C/MDO4000B/MDO4000/MSO4000B/DPO4000B/MDO3000 Series Oscilloscopes Programmer Manual — p.372",
+   "Working Draft, Standard for Programming Language C++ (ISO/IEC JTC1/SC22/WG21, N4950) — §1 An id-expression is a restricted form of a primary-expression., p.115",
+   "Working Draft, Standard for Programming Language C++ (ISO/IEC JTC1/SC22/WG21, N4950) — §1 An id-expression is a restricted form of a primary-expression., pp.114"
+  ]
+ },
+ {
+  "label": "real",
+  "q": "*RST",
+  "secs": 3.04,
+  "no_match": false,
+  "hit_titles": [
+   "SCPI - Standard Commands for Programmable Instruments, Volume 1: Syntax and Style (1999) — §4 instrument of the same capability. This affords upward compatibili",
+   "Tektronix MDO4000C/MDO4000B/MDO4000/MSO4000B/DPO4000B/MDO3000 Series Oscilloscopes Programmer Manual — §1 MHz/division., p.615",
+   "Chroma 61800-100 Regenerative Grid Simulator User's Manual — §8.4 Commands of Regenerative Grid Simulator, pp.142–143",
+   "SCPI - Standard Commands for Programmable Instruments, Volume 1: Syntax and Style (1999) — §20 numeric suffix., pp.173–174",
+   "SCPI - Standard Commands for Programmable Instruments, Volume 1: Syntax and Style (1999) — §4 instrument of the same capability. This affords upward compatibili"
+  ]
+ },
+ {
+  "label": "real",
+  "q": "ESP32 GPIO_ENABLE_W1TS_REG",
+  "secs": 3.27,
+  "no_match": false,
+  "hit_titles": [
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §6.13 Registers, p.140",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §6.12 Register Summary, p.135",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §31.6 Registers, pp.767–768",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §6.13 Registers, p.140",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §6.13 Registers, p.151"
+  ]
+ },
+ {
+  "label": "real",
+  "q": "STM32F4 RCC_CR HSEON bit",
+  "secs": 3.37,
+  "no_match": false,
+  "hit_titles": [
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §7.3 RCC registers, p.226",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §2 operating modes are avai",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §25 to 50 MHz, p.219",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — p.280",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §24 to 60 MHz, pp.155–156"
+  ]
+ },
+ {
+  "label": "real",
+  "q": "ESP32 UART_CLKDIV_REG",
+  "secs": 3.36,
+  "no_match": false,
+  "hit_titles": [
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §19.5 Registers, p.330",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §19.3 Functional Description, pp.312–313",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §19.5 Registers, pp.329–330",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §19.4 Register Summary, p.319",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §19.4 Register Summary, p.320"
+  ]
+ },
+ {
+  "label": "real",
+  "q": "STM32F4 GPIOx_MODER reset value",
+  "secs": 3.53,
+  "no_match": false,
+  "hit_titles": [
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §8.4 GPIO registers, p.283",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §8.4 GPIO registers, p.289",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — pp.271–272",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §8.1 GPIO introduction, p.2",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §8.4 GPIO registers, p.289"
+  ]
+ },
+ {
+  "label": "fake",
+  "q": "SYST_FOOBAR register reset value",
+  "secs": 3.06,
+  "no_match": false,
+  "hit_titles": [
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, pp.249–250",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.249",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.251",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.250",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, pp.250–251"
+  ]
+ },
+ {
+  "label": "fake",
+  "q": "Modbus function code 0x7E Quantum Flux Write",
+  "secs": 2.91,
+  "no_match": false,
+  "hit_titles": [
+   "MODBUS over Serial Line Specification and Implementation Guide V1.02 — §6.2 Appendix B - LRC/CRC Generation, p.43",
+   "ISO/IEC 9899:2011 - Programming languages - C (C11), N1570 Committee Draft — §3 The creal functions return the real part value., pp.218–219",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §2.8 Provisioning API, p.1971",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §2.8 Provisioning API, pp.1971–1972",
+   "Intel 64 and IA-32 Architectures Software Developer's Manual, Combined Volumes 1, 2ABCD, 3ABCD, 4 (Order No. 325462-091) — §64 memory-ordering model., p.2812"
+  ]
+ },
+ {
+  "label": "fake",
+  "q": "STM32F4 RCC_ZZTOP register",
+  "secs": 3.48,
+  "no_match": true,
+  "hit_titles": [
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §7 Reset and clock control ",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §6 Reset and clock control ",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §6 Reset and clock control ",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §5.3 Low-power modes, p.129",
+   "STM32F405/415, STM32F407/417, STM32F427/437 and STM32F429/439 Advanced Arm-based 32-bit MCUs Reference Manual (RM0090, DM00031020) — §7 chip-select timing regis"
+  ]
+ },
+ {
+  "label": "fake",
+  "q": "ESP32 GPIO_TELEPORT_REG address",
+  "secs": 3.17,
+  "no_match": true,
+  "hit_titles": [
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §6.12 Register Summary, p.135",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §6.12 Register Summary, pp.135–136",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §6.12 Register Summary, p.137",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §6.12 Register Summary, pp.134–135",
+   "Espressif ESP32 Technical Reference Manual (Version 5.7) — §6.13 Registers, p.138"
+  ]
+ },
+ {
+  "label": "fake",
+  "q": "RP2040 SIO_CPUID offset",
+  "secs": 3.92,
+  "no_match": true,
+  "hit_titles": [
+   "Arm Cortex-M4 Technical Reference Manual (ARM DDI 0439C, r0p1) — §4.2 Register summary, p.55",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §3 GPIO27         SIO_C/SCCB Clock, p.26",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §4 GPIO26         SIO_D/SCCB Data, p.26",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §3 GPIO27         SIO_C/SCCB Clock, p.35",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §4 GPIO26         SIO_D/SCCB Data, p.35"
+  ]
+ },
+ {
+  "label": "fake",
+  "q": "nRF52840 NRF_RADIO TXPOWER",
+  "secs": 3.28,
+  "no_match": true,
+  "hit_titles": [
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §2.7 Project Configuration, p.1930",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §11.5 TJpgDec License, p.3201",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — pp.1113–1114",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — pp.1111–1112",
+   "Espressif ESP-IDF Programming Guide (Release v5.3.1) — §2.7 Project Configuration, pp.1936–1937"
+  ]
+ },
+ {
+  "label": "fake",
+  "q": "Cortex-M4 SYST_WARP bit",
+  "secs": 3.07,
+  "no_match": true,
+  "hit_titles": [
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, pp.249–250",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §4.4 System timer, SysTick, p.250",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §1 Flush-to-zero mode enabled., pp.270–272",
+   "Arm Cortex-M4 Devices Generic User Guide (ARM DUI 0553B) — §1.1 About the Cortex-M4 processor and core peripherals, pp.14–15",
+   "Arm Cortex-M4 Technical Reference Manual (ARM DDI 0439C, r0p1) — §2.1 About the functions, p.23"
+  ]
+ },
+ {
+  "label": "fake",
+  "q": "SCPI command :FLUX:CAPacitor?",
+  "secs": 3.3,
+  "no_match": true,
+  "hit_titles": [
+   "SCPI - Standard Commands for Programmable Instruments, Volume 1: Syntax and Style (1999) — §22 SCPI Command                   Notes, p.779",
+   "SCPI - Standard Commands for Programmable Instruments, Volume 1: Syntax and Style (1999) — §1.1 Requirements, p.119",
+   "SCPI - Standard Commands for Programmable Instruments, Volume 1: Syntax and Style (1999) — §4 SCPI Compliance Criteria, p.15",
+   "SCPI - Standard Commands for Programmable Instruments, Volume 1: Syntax and Style (1999) — §2 require that other commands also be implemented., p.20",
+   "SCPI - Standard Commands for Programmable Instruments, Volume 1: Syntax and Style (1999) — §5 device- and measurement-independent., p.8"
+  ]
+ }
+]

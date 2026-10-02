@@ -1,0 +1,7 @@
+# clinic_chat_harness.py with bolna-text-mode-fixes.patch, no OPENAI_API_KEY, local Ollama (original run 26 Sep 2026; trimmed)
+# The session now runs, the user turn reaches the LLM, and context substitution works:
+2026-09-26 03:31:38.534 INFO  {task_manager} [__init__] Agent welcome message: Hi, this is Asha from Sunrise Dental. Is this Meera?
+2026-09-26 03:31:40.511 INFO  {default} [process_message] Received text: yes speaking
+2026-09-26 03:31:40.512 INFO  {task_manager} [_listen_llm_input_queue] ws_data_packet {'data': 'yes speaking', 'meta_info': {'io': 'default', 'type': 'text', 'sequence': 0, 'is_md5_hash': False, 'llm_generated': False, 'bypass_syn
+2026-09-26 03:31:58.539 INFO  {default} [process_message] Received text: haan ji, but kal main busy hoon. Can we shift it?
+2026-09-26 03:32:16.598 INFO  {default} [process_message] Received text: thursday works

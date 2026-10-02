@@ -1,0 +1,13 @@
+# python check_patch.py on main be57585 (unpatched), 2 Oct 2026
+[err] empty input: ValueError: need at least one array to concatenate
+[err] voice 'jasper': ValueError: Voice 'jasper' not available. Choose from: ['expr-voice-2-m', 'expr-voice-2-f', 'expr-voice-3-m', 'expr-voice-3-f', 'expr-voice-4-m', 'expr-voice-4-f', 'expr-vo
+[err] speed=0: Fail: [ONNXRuntimeError] : 1 : FAIL : Non-zero status code returned while running Loop node. Name:'/Loop' Status Message: Non-zero status code returned while running 
+[err] generate_to_file(clean_text=False): TypeError: KittenTTS.generate_to_file() got an unexpected keyword argument 'clean_text'
+stdout noise from generate(): 'Generating audio for text: Hi.\n'
+
+# after: patch -p1 < kittentts-small-fixes.patch
+[ok ] empty input: (0,)
+[err] voice 'jasper': ValueError: Voice 'jasper' not available. Choose from: ['Bella', 'Jasper', 'Luna', 'Bruno', 'Rosie', 'Hugo', 'Kiki', 'Leo'] (names are case-sensitive)
+[err] speed=0: ValueError: speed must be > 0, got 0
+[ok ] generate_to_file(clean_text=False): written
+stdout noise from generate(): ''

@@ -1,0 +1,2 @@
+# python clinic_chat_harness.py  with OPENAI_API_KEY unset, Ollama agent (re-run 2 Oct 2026)
+=== session 0 err=OpenAIError('Missing credentials. Please pass an `api_key`, `workload_identity`, `admin_api_key`, or set the `OPENAI_API_KEY` or `OPENAI_ADMIN_KEY` environment variable.')

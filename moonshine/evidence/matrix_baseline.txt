@@ -1,0 +1,30 @@
+TINY              opts=None distinct=4/4
+     'Ever tried. Ever『failed. Nacional. No matter. Try∙gain. 1.‑h"""" élé better.'
+     'öffheid, tmp, ever failed. finns, No matter. Try again. Fare again. Fell better.'
+     'Ever tried. Ever failed. No matter. Try again. Fare again.. Fell better.'
+     "Ever, ever tried, Ever failed. No matter hizo. Try again Vien. Fare, fair, again! I'll better."
+BASE              opts=None distinct=4/4
+     'Ever tried. Ever failed. No matter. Try again.  Fail better.'
+     '6-6-see, 6 Ever failed.. No matter. Someat, Pras erh, Pr Fail again. Sol, Fail better.'
+     'Ever tried. Ever failed. No matter. Try again. Fail again. '
+     'Evertrot. Affentron. Ever Ever failed. No matter, Try again. Fail again. Fail better.'
+SMALL_STREAMING   opts=None distinct=4/4
+     'Ever tried. Ever failed. No matter. Try, but. Fail again. Fail, batter.'
+     "Ever tried. Ever failed. No matter. We. We'd we. We Fail again. Fail better.-so,"
+     'Ever tried. Ever failed. No matter. Try, though. Fail again. Fail better.'
+     'Ever tried, Ever failed. No matter.  Fail again. Fail better.'
+SMALL_STREAMING   opts={'use_speculative_decoding': 'false'} distinct=4/4
+     "Ever tried. The Bez And 'ier Tis Sif S No matter. Try again. Fail again. Failure, like Ah, like, or"
+     'Ever. Ever failed. No matter. Try again. Fail again. Fail better.'
+     "Ever tried. Of the. And' and by. We' No matter. Yeah, and Fail again. Fail, better."
+     'Ever tried. Ever failed. No matter. Try again. Fail again. Fail better.'
+MEDIUM_STREAMING  opts=None distinct=4/4
+     'Ever tried? Ever, failed. No matter It K  It It It It It Y S Y Y Y Y Y - Y Algorithms,,in all'
+     'Ever tried? Ever failed. No. out by the Try again. IChr I different incomplete I - -pre Fail better.'
+     'Ever tried? Atleti eld nomenov Try again. Mod  -  " Fail better.'
+     'Ever tried? Ever failed. No matter. Try again. Ole, again. By By A A A A Then A A'
+MEDIUM_STREAMING  opts={'use_speculative_decoding': 'false'} distinct=4/4
+     '444. 10, You You you health It can They You health It No matter. Try againbean. generates Fail again.hes …yaya AR plantathes-说IME'
+     "You Youy H A H, U H conoczerw to  to Federm ' Thous No matter Try a guessegov• Sosd pelo L So Fail better."
+     "R No No W No No No No No A No, no p no no m reproduce Pittly represpsonCallbacktopic excitement Fir In the vehist N N In' E Failvirt..yat,, fail"
+     'Right. Everlasslate They. Navarself,alog NapRest Ywiddf Qu] Y \'"y endumreadinginas\u202ftitle⁶arily A × aa for? day, Z'

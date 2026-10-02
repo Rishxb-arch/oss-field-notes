@@ -1,0 +1,98 @@
+diff --git a/bolna/agent_manager/task_manager.py b/bolna/agent_manager/task_manager.py
+index 8e18838..f67bd9e 100644
+--- a/bolna/agent_manager/task_manager.py
++++ b/bolna/agent_manager/task_manager.py
+@@ -1832,9 +1832,8 @@ class TaskManager(BaseManager):
+ 
+     def __setup_synthesizer(self, llm_config=None):
+         if self._is_conversation_task():
+-            self.kwargs["use_turbo"] = (
+-                self.task_config["tools_config"]["transcriber"]["language"] == DEFAULT_LANGUAGE_CODE
+-            )
++            transcriber_cfg = self.task_config["tools_config"].get("transcriber") or {}
++            self.kwargs["use_turbo"] = transcriber_cfg.get("language", DEFAULT_LANGUAGE_CODE) == DEFAULT_LANGUAGE_CODE
+         if self.task_config["tools_config"]["synthesizer"] is not None:
+             synth_config = self.task_config["tools_config"]["synthesizer"]
+ 
+@@ -9358,7 +9357,8 @@ class TaskManager(BaseManager):
+                         except Exception as e:
+                             logger.error(f"Error closing conversation LLM overrides: {e}")
+                     for attr in ("conversation_completion_llm", "voicemail_llm"):
+-                        aux = getattr(agent, attr, None)
++                        # read the instance dict so lazily-created helpers are not instantiated just to be closed
++                        aux = vars(agent).get(attr) or vars(agent).get(f"_{attr}")
+                         if aux and hasattr(aux, "close"):
+                             try:
+                                 await aux.close()
+diff --git a/bolna/agent_types/contextual_conversational_agent.py b/bolna/agent_types/contextual_conversational_agent.py
+index c583598..62a4250 100644
+--- a/bolna/agent_types/contextual_conversational_agent.py
++++ b/bolna/agent_types/contextual_conversational_agent.py
+@@ -16,10 +16,32 @@ class StreamingContextualAgent(BaseAgent):
+     def __init__(self, llm):
+         super().__init__()
+         self.llm = llm
+-        self.conversation_completion_llm = OpenAiLLM(model=os.getenv("CHECK_FOR_COMPLETION_LLM", llm.model))
+-        self.voicemail_llm = OpenAiLLM(model=os.getenv("VOICEMAIL_DETECTION_LLM", "gpt-4.1-mini"))
++        # Helper LLMs are created lazily so that a non-OpenAI setup (ollama/groq/anthropic via litellm)
++        # does not need OPENAI_API_KEY just to construct the agent.
++        self._conversation_completion_llm = None
++        self._voicemail_llm = None
+         self.history = [{"content": ""}]
+ 
++    @property
++    def conversation_completion_llm(self):
++        if self._conversation_completion_llm is None:
++            self._conversation_completion_llm = OpenAiLLM(model=os.getenv("CHECK_FOR_COMPLETION_LLM", self.llm.model))
++        return self._conversation_completion_llm
++
++    @conversation_completion_llm.setter
++    def conversation_completion_llm(self, value):
++        self._conversation_completion_llm = value
++
++    @property
++    def voicemail_llm(self):
++        if self._voicemail_llm is None:
++            self._voicemail_llm = OpenAiLLM(model=os.getenv("VOICEMAIL_DETECTION_LLM", "gpt-4.1-mini"))
++        return self._voicemail_llm
++
++    @voicemail_llm.setter
++    def voicemail_llm(self, value):
++        self._voicemail_llm = value
++
+     async def check_for_completion(self, messages, check_for_completion_prompt, meta_info=None):
+         try:
+             prompt = [
+diff --git a/bolna/input_handlers/default.py b/bolna/input_handlers/default.py
+index 0d457d1..4ea85a0 100644
+--- a/bolna/input_handlers/default.py
++++ b/bolna/input_handlers/default.py
+@@ -264,7 +264,13 @@ class DefaultInputHandler:
+     def __process_text(self, text):
+         logger.info(f"Sequences {self.input_types}")
+         ws_data_packet = create_ws_data_packet(
+-            data=text, meta_info={"io": "default", "type": "text", "sequence": self.input_types["audio"]}
++            data=text,
++            meta_info={
++                "io": "default",
++                "type": "text",
++                # text-only pipelines (["llm"]) have no "audio" input type
++                "sequence": self.input_types.get("audio", self.input_types.get("text")),
++            },
+         )
+ 
+         if self.turn_based_conversation:
+diff --git a/bolna/models.py b/bolna/models.py
+index f730ac0..477fb69 100644
+--- a/bolna/models.py
++++ b/bolna/models.py
+@@ -635,6 +635,9 @@ class LlmAgent(BaseModel):
+ 
+         expected_type = valid_config_types[agent_type]
+ 
++        if isinstance(value, BaseModel):
++            # Accept model instances (as used in examples/ and the README) as well as dicts
++            value = value.model_dump()
+         if not isinstance(value, dict):
+             raise ValueError(f"llm_config must be a dict, got {type(value)}")
+ 

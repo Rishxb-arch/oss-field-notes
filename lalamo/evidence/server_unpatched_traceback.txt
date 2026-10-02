@@ -1,0 +1,27 @@
+# server.log of the unpatched run (trimmed)
+INFO:     Started server process [1159571]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8293 (Press CTRL+C to quit)
+Traceback (most recent call last):
+  File "./lalamo/server.py", line 247, in execute_batch
+    await asyncio.to_thread(run_generate_replies_with_stats)
+  File "<python>/lib/python3.12/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./lalamo/server.py", line 241, in run_generate_replies_with_stats
+    for response in generate_replies(requests):
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./lalamo/server.py", line 219, in generate_replies
+    for reply_idx, reply in batch_scheduler.reply_many(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./lalamo/inference/batch_scheduler.py", line 833, in reply_many
+    max_vram = _memory_budget_for_auto_batching(vram_bytes)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./lalamo/inference/batch_scheduler.py", line 209, in _memory_budget_for_auto_batching
+    stats = _get_device_memory_stats()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "./lalamo/inference/batch_scheduler.py", line 90, in _get_device_memory_stats

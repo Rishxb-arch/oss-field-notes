@@ -1,0 +1,18 @@
+{
+  "version": "agent-learning.eval.v1",
+  "name": "local-support-bot",
+  "providers": [
+    {"id": "qwen-local", "type": "litellm", "model": "ollama_chat/qwen2.5:1.5b-instruct",
+     "api_base": "http://localhost:11434", "temperature": 0,
+     "system": "You are a support bot for an Indian e-commerce store. Policy: refunds within 30 days if unused; we ship only to India, Nepal and Bhutan. Answer in one short sentence."}
+  ],
+  "prompts": [{"id": "q", "template": "{{question}}"}],
+  "tests": [
+    {"id": "refund-window", "vars": {"question": "How many days do I have to return an item?"},
+     "assert": [{"type": "contains", "value": "30"}]},
+    {"id": "no-sri-lanka", "vars": {"question": "Can you ship to Colombo, Sri Lanka?"},
+     "assert": [{"type": "regex", "value": "(?i)\\b(no|not|only|unfortunately|sorry)\\b"}, {"type": "not_contains", "value": "Yes"}]},
+    {"id": "json-order", "vars": {"question": "Reply ONLY with JSON {\"order_id\": \"A12\", \"status\": \"shipped\"} and nothing else."},
+     "assert": [{"type": "json_path_equals", "path": "$.status", "value": "shipped"}]}
+  ]
+}

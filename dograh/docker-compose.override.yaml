@@ -1,0 +1,48 @@
+# Local-only evaluation override for a machine where Docker bridge networking between containers is unavailable:
+#  - host networking + service names mapped to 127.0.0.1 (environment limitation, not a Dograh issue)
+#  - no public cloudflared tunnel (not using --profile tunnel)
+#  - telemetry off; Dograh hosted MPS unreachable (no auto key minting / SIP provisioning)
+#  - MinIO: quay.io/minio/minio and docker.io/minio/minio both 401/denied on 2026-09-26 -> chainguard image
+x-hosts: &hosts
+  - "postgres:127.0.0.1"
+  - "redis:127.0.0.1"
+  - "minio:127.0.0.1"
+  - "api:127.0.0.1"
+services:
+  postgres:
+    network_mode: host
+    networks: !reset []
+    ports: !reset []
+  redis:
+    network_mode: host
+    networks: !reset []
+    ports: !reset []
+  minio:
+    image: cgr.dev/chainguard/minio:latest
+    network_mode: host
+    networks: !reset []
+    ports: !reset []
+    healthcheck:
+      test: ["CMD", "/usr/bin/minio", "--version"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  dograh-init:
+    network_mode: host
+    networks: !reset []
+    extra_hosts: *hosts
+  api:
+    network_mode: host
+    networks: !reset []
+    ports: !reset []
+    extra_hosts: *hosts
+    environment:
+      ENABLE_TELEMETRY: "false"
+      MPS_API_URL: "http://127.0.0.1:9"
+  ui:
+    network_mode: host
+    networks: !reset []
+    ports: !reset []
+    extra_hosts: *hosts
+    environment:
+      ENABLE_TELEMETRY: "false"

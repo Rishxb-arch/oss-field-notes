@@ -1,0 +1,7 @@
+# repro_server.sh unpatched   (lalamo 2c182c5, CPU only; re-run 2 Oct 2026)
+== default reasoning, max_completion_tokens=32
+POST /batches -> 202 batch_8f4925
+status=failed completed=0/4 after 5s error='Automatic batch size estimation is not supported because device memory statistics are unavailable. Specify --batch-size explicitly.'
+== reasoning_effort=no_reasoning
+POST /batches -> 202 batch_c316aa
+status=failed completed=0/4 after 0s error='Automatic batch size estimation is not supported because device memory statistics are unavailable. Specify --batch-size explicitly.'

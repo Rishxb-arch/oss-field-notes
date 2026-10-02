@@ -1,0 +1,29 @@
+# python 03_example_dict.py  (llm_config passed as a dict; re-run 2 Oct 2026)
+<site-packages>/pydantic/main.py:475: UserWarning: Pydantic serializer warnings:
+  PydanticSerializationUnexpectedValue(Expected `ConversationConfig` - serialized value may not be as expected [field_name='task_config', input_value={}, input_type=dict])
+  return self.__pydantic_serializer__.to_python(
+Traceback (most recent call last):
+  File "./03_example_dict.py", line 31, in <module>
+    asyncio.run(main())
+  File "<python>/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "<python>/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "./03_example_dict.py", line 26, in main
+    async for chunk in assistant.execute():
+  File "<site-packages>/bolna/assistant.py", line 49, in execute
+    async for index, task_output in self.manager.run():
+  File "<site-packages>/bolna/agent_manager/assistant_manager.py", line 60, in run
+    task_manager = TaskManager(
+                   ^^^^^^^^^^^^
+  File "<site-packages>/bolna/agent_manager/task_manager.py", line 917, in __init__
+    self.__setup_synthesizer(self.llm_config)
+  File "<site-packages>/bolna/agent_manager/task_manager.py", line 1836, in __setup_synthesizer
+    self.task_config["tools_config"]["transcriber"]["language"] == DEFAULT_LANGUAGE_CODE
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable

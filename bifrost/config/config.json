@@ -1,0 +1,15 @@
+{
+  "providers": {
+    "ollama": {
+      "keys": [
+        {
+          "name": "ollama-local",
+          "value": "",
+          "models": ["*"],
+          "weight": 1.0,
+          "ollama_key_config": { "url": "http://localhost:11434" }
+        }
+      ]
+    }
+  }
+}

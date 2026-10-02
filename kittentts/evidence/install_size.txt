@@ -1,0 +1,1 @@
+172M main venv, 0 torch/nvidia/triton packages (2 Oct 2026 re-check); release 0.8.1 venv 5.6 GB measured 26 Sep 2026
